@@ -3,14 +3,22 @@ import { useInView } from 'react-intersection-observer';
 
 import { TTabMode } from '@utils-types';
 import { BurgerIngredientsUI } from '../ui/burger-ingredients';
+import { useSelector } from '../../services/store';
+import {
+  selectIngredientsByCategory,
+  selectIngredientsStatus
+} from '../../slices/ingredients/ingredientsSlice';
 
 export const BurgerIngredients: FC = () => {
-  /** TODO: взять переменные из стора */
-  const buns = [];
-  const mains = [];
-  const sauces = [];
+  // const status = useSelector(selectIngredientsStatus);
+  const {
+    bun: buns,
+    main: mains,
+    sauce: sauces
+  } = useSelector(selectIngredientsByCategory);
 
   const [currentTab, setCurrentTab] = useState<TTabMode>('bun');
+
   const titleBunRef = useRef<HTMLHeadingElement>(null);
   const titleMainRef = useRef<HTMLHeadingElement>(null);
   const titleSaucesRef = useRef<HTMLHeadingElement>(null);
@@ -37,8 +45,15 @@ export const BurgerIngredients: FC = () => {
     }
   }, [inViewBuns, inViewFilling, inViewSauces]);
 
+  // if (status === 'loading') return <div>Загрузка ингредиентов...</div>;
+  // if (status === 'failed') return <div>Ошибка загрузки данных</div>;
+  // if (!buns.length && !mains.length && !sauces.length) {
+  //   return <div>Нет доступных ингредиентов</div>;
+  // }
+
   const onTabClick = (tab: string) => {
     setCurrentTab(tab as TTabMode);
+
     if (tab === 'bun')
       titleBunRef.current?.scrollIntoView({ behavior: 'smooth' });
     if (tab === 'main')
@@ -46,8 +61,6 @@ export const BurgerIngredients: FC = () => {
     if (tab === 'sauce')
       titleSaucesRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  return null;
 
   return (
     <BurgerIngredientsUI
