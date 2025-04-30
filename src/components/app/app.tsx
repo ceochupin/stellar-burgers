@@ -19,7 +19,7 @@ import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 import { OnlyUnAuth, OnlyAuth } from '../protected-route/protected-route';
 import { useDispatch } from '../../services/store';
 import { FC, useEffect } from 'react';
-import { getBurgerIngredients } from '../../slices/burger-ingredients/burgerIngredientsActions';
+import { getBurgerIngredients } from '../../slices/burger-ingredients/burger-ingredients-actions';
 
 const App: FC = () => {
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ const App: FC = () => {
       <Routes location={background || location}>
         <Route path='/' element={<ConstructorPage />} />
 
-        <Route path='/feed' element={<OnlyAuth component={<Feed />} />} />
+        <Route path='/feed' element={<Feed />} />
 
         <Route path='/login' element={<OnlyUnAuth component={<Login />} />} />
 

@@ -1,6 +1,6 @@
 import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TIngredient } from '@utils-types';
-import { getBurgerIngredients } from './burgerIngredientsActions';
+import { getBurgerIngredients } from './burger-ingredients-actions';
 
 interface IBurgerIngredientsState {
   items: TIngredient[];
@@ -23,14 +23,19 @@ const burgerIngredientsSlice = createSlice({
     selectIngredientsError: (state) => state.error,
     selectIngredientById: (state, id: string) =>
       state.items.find((item) => item._id === id) || null,
-    selectIngredientsByAllTypes: createSelector(
-      [(state: IBurgerIngredientsState) => state.items],
-      (items) => ({
-        buns: items.filter((item) => item.type === 'bun'),
-        mains: items.filter((item) => item.type === 'main'),
-        sauces: items.filter((item) => item.type === 'sauce')
-      })
-    )
+    // selectIngredientsByAllTypes: createSelector(
+    //   [(state: IBurgerIngredientsState) => state.items],
+    //   (items) => ({
+    //     buns: items.filter((item) => item.type === 'bun'),
+    //     mains: items.filter((item) => item.type === 'main'),
+    //     sauces: items.filter((item) => item.type === 'sauce')
+    //   })
+    // )
+    selectIngredientsByAllTypes: (state) => ({
+      buns: state.items.filter((item) => item.type === 'bun'),
+      mains: state.items.filter((item) => item.type === 'main'),
+      sauces: state.items.filter((item) => item.type === 'sauce')
+    })
   },
   extraReducers: (builder) => {
     builder

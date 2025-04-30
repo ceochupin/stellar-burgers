@@ -5,7 +5,7 @@ import styles from './constructor-page.module.css';
 import { BurgerIngredients, BurgerConstructor } from '../../components';
 import { Preloader } from '../../components/ui';
 import { FC } from 'react';
-import { selectIngredientsStatus } from '../../slices/burger-ingredients/burgerIngredientsSlice';
+import { selectIngredientsStatus } from '../../slices/burger-ingredients/burger-ingredients-slice';
 
 export const ConstructorPage: FC = () => {
   const status = useSelector(selectIngredientsStatus);
