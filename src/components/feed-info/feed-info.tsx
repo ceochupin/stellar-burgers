@@ -6,7 +6,7 @@ import { useSelector } from '../../services/store';
 import {
   selectFeedInfoAllTotal,
   selectFeedInfoOrders
-} from '../../slices/feed-info/feed-info-slice';
+} from '../../slices/feed-info/feed-info-selectors';
 
 const getOrders = (orders: TOrder[], status: string): number[] =>
   orders
@@ -15,7 +15,7 @@ const getOrders = (orders: TOrder[], status: string): number[] =>
     .slice(0, 20);
 
 export const FeedInfo: FC = () => {
-  const orders: TOrder[] = useSelector(selectFeedInfoOrders);
+  const orders = useSelector(selectFeedInfoOrders);
   const feed = useSelector(selectFeedInfoAllTotal);
 
   const readyOrders = getOrders(orders, 'done');

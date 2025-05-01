@@ -1,20 +1,14 @@
-import { FC, useMemo } from 'react';
-import { TConstructorIngredient } from '@utils-types';
+import { FC } from 'react';
 import { BurgerConstructorUI } from '@ui';
 import { useSelector } from '../../services/store';
 import {
-  selectConstructorBun,
-  selectConstructorIngredients
-} from '../../slices/burger-constructor/burger-constructor-slice';
+  selectConstructorItems,
+  selectConstructorTotalPrice
+} from '../../slices/burger-constructor/burger-constructor-selectors';
 
 export const BurgerConstructor: FC = () => {
-  const bun = useSelector(selectConstructorBun);
-  const ingredients = useSelector(selectConstructorIngredients);
-
-  const constructorItems = {
-    bun,
-    ingredients: ingredients || []
-  };
+  const constructorItems = useSelector(selectConstructorItems);
+  const price = useSelector(selectConstructorTotalPrice);
 
   const orderRequest = false;
   const orderModalData = null;
@@ -24,16 +18,6 @@ export const BurgerConstructor: FC = () => {
   };
 
   const closeOrderModal = () => {};
-
-  const price = useMemo(
-    () =>
-      (constructorItems.bun ? constructorItems.bun.price * 2 : 0) +
-      constructorItems.ingredients.reduce(
-        (s: number, v: TConstructorIngredient) => s + v.price,
-        0
-      ),
-    [constructorItems]
-  );
 
   return (
     <BurgerConstructorUI

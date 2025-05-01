@@ -1,4 +1,4 @@
-import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TOrdersData } from '@utils-types';
 import { getFeedInfo } from './feed-info-actions';
 
@@ -19,21 +19,6 @@ const feedInfoSlice = createSlice({
   name: 'feedInfo',
   initialState,
   reducers: {},
-  selectors: {
-    selectFeedInfoStatus: (state) => state.status,
-    selectFeedInfoOrders: (state) => state.orders,
-    // selectFeedInfoAllTotal: createSelector(
-    //   [(state: IFeedInfoState) => state],
-    //   (state) => ({
-    //     total: state.total,
-    //     totalToday: state.totalToday
-    //   })
-    // )
-    selectFeedInfoAllTotal: (state) => ({
-      total: state.total,
-      totalToday: state.totalToday
-    })
-  },
   extraReducers: (builder) => {
     builder
       .addCase(getFeedInfo.pending, (state) => {
@@ -55,11 +40,5 @@ const feedInfoSlice = createSlice({
       });
   }
 });
-
-export const {
-  selectFeedInfoStatus,
-  selectFeedInfoOrders,
-  selectFeedInfoAllTotal
-} = feedInfoSlice.selectors;
 
 export default feedInfoSlice.reducer;

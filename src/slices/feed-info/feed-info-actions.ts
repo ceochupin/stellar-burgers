@@ -1,3 +1,5 @@
+// TODO: Типизировать createAsyncThunk
+
 import { getFeedsApi } from '@api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 

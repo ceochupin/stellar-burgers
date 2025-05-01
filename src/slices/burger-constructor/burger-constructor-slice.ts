@@ -1,7 +1,9 @@
+// TODO: реализовать строгую модульность и вынести экшены с их типами в отдельный файл
+
 import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TIngredient } from '@utils-types';
 
-interface IBurgerConstructorState {
+export interface IBurgerConstructorState {
   bun: TConstructorIngredient | null;
   ingredients: TConstructorIngredient[];
 }
@@ -51,19 +53,6 @@ const burgerConstructorSlice = createSlice({
       state.bun = null;
       state.ingredients = [];
     }
-  },
-  selectors: {
-    selectConstructorBun: (state) => state.bun,
-    selectConstructorIngredients: (state) => state.ingredients,
-    selectConstructorIngredientsIds: (state) => {
-      const ingredientsIds = state.ingredients.map((item) => item._id);
-      const bunId = state.bun ? state.bun._id : null;
-
-      return {
-        ingredients: ingredientsIds,
-        bun: bunId
-      };
-    }
   }
 });
 
@@ -73,11 +62,5 @@ export const {
   moveIngredient,
   clearConstructor
 } = burgerConstructorSlice.actions;
-
-export const {
-  selectConstructorBun,
-  selectConstructorIngredients,
-  selectConstructorIngredientsIds
-} = burgerConstructorSlice.selectors;
 
 export default burgerConstructorSlice.reducer;

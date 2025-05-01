@@ -45,6 +45,8 @@ const App: FC = () => {
 
         <Route path='/feed' element={<Feed />} />
 
+        <Route path='/ingredients/:id' element={<IngredientDetails />} />
+
         <Route path='/login' element={<OnlyUnAuth component={<Login />} />} />
 
         <Route
