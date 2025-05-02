@@ -3,11 +3,11 @@ import { FeedUI } from '@ui-pages';
 import { TOrder } from '@utils-types';
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from '../../services/store';
-import { selectFeedInfoOrders } from '../../slices/feed-info/feed-info-selectors';
+import { selectFeedInfoItems } from '../../slices/feed-info/feed-info-selectors';
 import { getFeedInfo } from '../../slices/feed-info/feed-info-actions';
 
 export const Feed: FC = () => {
-  const orders: TOrder[] = useSelector(selectFeedInfoOrders);
+  const orders: TOrder[] = useSelector(selectFeedInfoItems);
 
   const dispatch = useDispatch();
 

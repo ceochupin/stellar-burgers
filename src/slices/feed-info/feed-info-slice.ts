@@ -1,14 +1,19 @@
+// TODO: Вынести интерфейс в локальные типы слайса для селекторов и сделать расширение типов
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TOrdersData } from '@utils-types';
+import { TOrder, TOrdersData } from '@utils-types';
 import { getFeedInfo } from './feed-info-actions';
 
-interface IFeedInfoState extends TOrdersData {
+interface IFeedInfoState {
+  items: TOrder[];
+  total: number | null;
+  totalToday: number | null;
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 }
 
 const initialState: IFeedInfoState = {
-  orders: [],
+  items: [],
   total: null,
   totalToday: null,
   status: 'idle',
@@ -29,14 +34,14 @@ const feedInfoSlice = createSlice({
         getFeedInfo.fulfilled,
         (state, action: PayloadAction<TOrdersData>) => {
           state.status = 'succeeded';
-          state.orders = action.payload.orders;
+          state.items = action.payload.orders;
           state.total = action.payload.total;
           state.totalToday = action.payload.totalToday;
         }
       )
       .addCase(getFeedInfo.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = (action.error.message as string) || 'Неизвестная ошибка';
+        state.error = (action.error?.message as string) ?? 'Неизвестная ошибка';
       });
   }
 });

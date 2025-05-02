@@ -17,6 +17,17 @@ p {
 
 .content {
   overflow-y: scroll;
+  scrollbar-color: #8585AD #2F2F37;
+	scrollbar-width: thin;
+}
+
+.content::-webkit-scrollbar {
+  background-color: #2F2F37;
+  width: 8px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: #8585AD;
 }
 
 .menu {

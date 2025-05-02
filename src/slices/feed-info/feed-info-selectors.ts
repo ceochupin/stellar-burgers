@@ -5,14 +5,9 @@ import { RootState } from '../../services/store';
 
 const selectFeedInfoState = (state: RootState) => state.feedInfo;
 
-export const selectFeedInfoOrders = createSelector(
+export const selectFeedInfoItems = createSelector(
   [selectFeedInfoState],
-  (feedInfoState) => feedInfoState.orders
-);
-
-export const selectFeedInfoStatus = createSelector(
-  [selectFeedInfoState],
-  (feedInfoState) => feedInfoState.status
+  (feedInfoState) => feedInfoState.items
 );
 
 export const selectFeedInfoTotal = createSelector(
@@ -23,6 +18,16 @@ export const selectFeedInfoTotal = createSelector(
 export const selectFeedInfoTotalToday = createSelector(
   [selectFeedInfoState],
   (feedInfoState) => feedInfoState.totalToday
+);
+
+export const selectFeedInfoStatus = createSelector(
+  [selectFeedInfoState],
+  (feedInfoState) => feedInfoState.status
+);
+
+export const selectFeedInfoError = createSelector(
+  [selectFeedInfoState],
+  (feedInfoState) => feedInfoState.error
 );
 
 export const selectFeedInfoAllTotal = createSelector(

@@ -1,43 +1,43 @@
 // TODO: Вынести интерфейс в локальные типы слайса для селекторов
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TIngredient } from '@utils-types';
-import { getBurgerIngredients } from './burger-ingredients-actions';
+import { TOrder } from '@utils-types';
+import { getOrdersList } from './orders-list-actions';
 
-interface IBurgerIngredientsState {
-  items: TIngredient[];
+interface IOrdersListState {
+  items: TOrder[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 }
 
-const initialState: IBurgerIngredientsState = {
+const initialState: IOrdersListState = {
   items: [],
   status: 'idle',
   error: null
 };
 
-const burgerIngredientsSlice = createSlice({
-  name: 'burgerIngredients',
+const ordersListSlice = createSlice({
+  name: 'ordersList',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getBurgerIngredients.pending, (state) => {
+      .addCase(getOrdersList.pending, (state) => {
         state.status = 'loading';
         state.error = null;
       })
       .addCase(
-        getBurgerIngredients.fulfilled,
-        (state, action: PayloadAction<TIngredient[]>) => {
+        getOrdersList.fulfilled,
+        (state, action: PayloadAction<TOrder[]>) => {
           state.status = 'succeeded';
           state.items = action.payload;
         }
       )
-      .addCase(getBurgerIngredients.rejected, (state, action) => {
+      .addCase(getOrdersList.rejected, (state, action) => {
         state.status = 'failed';
         state.error = (action.error?.message as string) ?? 'Неизвестная ошибка';
       });
   }
 });
 
-export default burgerIngredientsSlice.reducer;
+export default ordersListSlice.reducer;

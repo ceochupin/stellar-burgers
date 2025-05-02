@@ -4,8 +4,7 @@
 .menu {
   display: flex;
   align-items: center;
-  max-width: 1240px;
-  height: 56px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -34,4 +33,5 @@
   display: flex;
   align-items: center;
   margin: 0 auto;
+  line-height: 0;
 }
