@@ -1,7 +1,7 @@
 import { FC, useMemo } from 'react';
-import { Preloader } from '../ui/preloader';
-import { IngredientDetailsUI } from '../ui/ingredient-details';
-import { useSelector } from '../../services/store';
+import { Preloader } from '@ui';
+import { IngredientDetailsUI } from '@ui';
+import { useSelector } from '@store';
 import { makeSelectIngredientById } from '../../slices/burger-ingredients/burger-ingredients-selectors';
 import { useParams } from 'react-router-dom';
 

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { BurgerConstructorUI } from '@ui';
-import { useSelector } from '../../services/store';
+import { useSelector } from '@store';
 import {
   selectConstructorItems,
   selectConstructorTotalPrice

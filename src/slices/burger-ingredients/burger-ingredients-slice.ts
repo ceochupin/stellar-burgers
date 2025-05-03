@@ -35,7 +35,7 @@ const burgerIngredientsSlice = createSlice({
       )
       .addCase(getBurgerIngredients.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = (action.error?.message as string) ?? 'Неизвестная ошибка';
+        state.error = action.error?.message as string;
       });
   }
 });

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
 import { TOrder } from '@utils-types';
-import { FeedInfoUI } from '../ui/feed-info';
-import { useSelector } from '../../services/store';
+import { FeedInfoUI } from '@ui';
+import { useSelector } from '@store';
 import {
   selectFeedInfoAllTotal,
   selectFeedInfoItems

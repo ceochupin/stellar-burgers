@@ -1,7 +1,7 @@
 // TODO: Поработать с типизацией селекторов
 
 import { createSelector } from '@reduxjs/toolkit';
-import { RootState } from '../../services/store';
+import { RootState } from '@store';
 
 const selectIngredientsState = (state: RootState) => state.burgerIngredients;
 

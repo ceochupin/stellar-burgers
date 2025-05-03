@@ -1,8 +1,8 @@
 import { FC, useEffect, useMemo } from 'react';
-import { Preloader } from '../ui/preloader';
-import { OrderInfoUI } from '../ui/order-info';
+import { Preloader } from '@ui';
+import { OrderInfoUI } from '@ui';
 import { TIngredient } from '@utils-types';
-import { useDispatch, useSelector } from '../../services/store';
+import { useDispatch, useSelector } from '@store';
 import { selectIngredientsItems } from '../../slices/burger-ingredients/burger-ingredients-selectors';
 import { useParams } from 'react-router-dom';
 import { getOrderInfo } from '../../slices/order-info/order-info-actions';

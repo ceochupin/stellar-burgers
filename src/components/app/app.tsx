@@ -17,7 +17,7 @@ import {
 
 import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 import { OnlyUnAuth, OnlyAuth } from '../protected-route/protected-route';
-import { useDispatch } from '../../services/store';
+import { useDispatch } from '@store';
 import { FC, useEffect } from 'react';
 import { getBurgerIngredients } from '../../slices/burger-ingredients/burger-ingredients-actions';
 

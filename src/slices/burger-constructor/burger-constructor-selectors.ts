@@ -1,7 +1,7 @@
 // TODO: Поработать с типизацией селекторов
 
 import { createSelector } from '@reduxjs/toolkit';
-import { RootState } from '../../services/store';
+import { RootState } from '@store';
 import { TConstructorIngredient } from '@utils-types';
 
 const selectConstructorState = (state: RootState) => state.burgerConstructor;
