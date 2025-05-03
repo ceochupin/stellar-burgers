@@ -2,7 +2,10 @@ import { JSX } from 'react';
 import { Preloader } from '@ui';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from '@store';
-import { selectIsAuthChecked } from '../../slices/user/user-selectors';
+import {
+  selectIsAuthChecked,
+  selectIsAuthUser
+} from '../../slices/user/user-selectors';
 
 type TProtectedProps = {
   onlyUnAuth?: boolean;
@@ -15,18 +18,19 @@ const Protected = ({
 }: TProtectedProps): JSX.Element => {
   const location = useLocation();
   const isAuthChecked = useSelector(selectIsAuthChecked);
+  const isAuthUser = useSelector(selectIsAuthUser);
 
-  // if (isAuthChecked) {
-  //   return <Preloader />;
-  // }
-
-  if (!onlyUnAuth) {
-    return <Navigate to={'/login'} state={{ from: location }} />;
+  if (!isAuthChecked) {
+    return <Preloader />;
   }
 
-  if (onlyUnAuth) {
-    const toFrom = location.state || { pathname: '/' };
-    return <Navigate to={toFrom} />;
+  if (onlyUnAuth && isAuthUser) {
+    const from = location.state?.from || { pathname: '/' };
+    return <Navigate to={from} replace />;
+  }
+
+  if (!onlyUnAuth && !isAuthUser) {
+    return <Navigate to={'/login'} state={{ from: location }} replace />;
   }
 
   return component;

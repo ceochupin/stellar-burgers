@@ -17,7 +17,7 @@ interface IUserState {
 
 const initialState: IUserState = {
   data: null,
-  isAuthChecked: true,
+  isAuthChecked: false,
   status: 'idle',
   error: null
 };
@@ -25,7 +25,11 @@ const initialState: IUserState = {
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    setAuthChecked: (state, action) => {
+      state.isAuthChecked = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchUser.pending, (state) => {
@@ -85,9 +89,9 @@ const userSlice = createSlice({
         state.status = 'loading';
         state.error = null;
       })
-      .addCase(updateUser.fulfilled, (state) => {
+      .addCase(updateUser.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.data = null;
+        state.data = action.payload.user;
       })
       .addCase(updateUser.rejected, (state, action) => {
         state.status = 'failed';
@@ -95,5 +99,7 @@ const userSlice = createSlice({
       });
   }
 });
+
+export const { setAuthChecked } = userSlice.actions;
 
 export default userSlice.reducer;

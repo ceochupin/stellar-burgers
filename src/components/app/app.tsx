@@ -64,9 +64,12 @@ const App: FC = () => {
           element={<OnlyUnAuth component={<ResetPassword />} />}
         />
 
-        <Route path='/profile' element={<OnlyAuth component={<Profile />} />}>
-          <Route path='orders' element={<ProfileOrders />} />
-        </Route>
+        <Route path='/profile' element={<OnlyAuth component={<Profile />} />} />
+
+        <Route
+          path='/profile/orders'
+          element={<OnlyAuth component={<ProfileOrders />} />}
+        />
 
         <Route path='*' element={<NotFound404 />} />
       </Routes>

@@ -16,108 +16,50 @@ import { deleteCookie, setCookie } from '../../utils/cookie';
 
 export const fetchUser = createAsyncThunk(
   'user/fetch',
-  async (_, { rejectWithValue }) => {
-    try {
-      return await getUserApi();
-    } catch (error) {
-      return rejectWithValue(
-        (error as Error).message || 'Не удалось получить пользователя'
-      );
-    }
-  }
+  async () => await getUserApi()
 );
 
 export const registerUser = createAsyncThunk(
   'user/register',
-  async (data: TRegisterData, { rejectWithValue }) => {
-    try {
-      const res = await registerUserApi(data);
+  async (data: TRegisterData) => {
+    const res = await registerUserApi(data);
 
-      setCookie('accessToken', res.accessToken.split(' ')[1]);
-      localStorage.setItem('refreshToken', res.refreshToken);
+    setCookie('accessToken', res.accessToken);
+    localStorage.setItem('refreshToken', res.refreshToken);
 
-      return res.user;
-    } catch (error) {
-      return rejectWithValue(
-        (error as Error).message || 'Не удалось зарегистрировать пользователя'
-      );
-    }
+    return res.user;
   }
 );
 
 export const loginUser = createAsyncThunk(
   'user/login',
-  async (data: TLoginData, { rejectWithValue }) => {
-    try {
-      const res = await loginUserApi(data);
+  async (data: TLoginData) => {
+    const res = await loginUserApi(data);
 
-      setCookie('accessToken', res.accessToken.split(' ')[1]);
-      localStorage.setItem('refreshToken', res.refreshToken);
+    setCookie('accessToken', res.accessToken);
+    localStorage.setItem('refreshToken', res.refreshToken);
 
-      return res.user;
-    } catch (error) {
-      return rejectWithValue(
-        (error as Error).message || 'Не удалось залогинить пользователя'
-      );
-    }
+    return res.user;
   }
 );
 
 export const logoutUser = createAsyncThunk(
   'user/logout',
-  async (_, { rejectWithValue }) => {
-    try {
-      await logoutApi();
-
-      deleteCookie('accessToken');
-      localStorage.removeItem('refreshToken');
-    } catch (error) {
-      return rejectWithValue(
-        (error as Error).message || 'Не удалось выполнидь выход пользователя'
-      );
-    }
-  }
+  async () => await logoutApi()
 );
 
 export const updateUser = createAsyncThunk(
   'user/update',
-  async (data: Partial<TRegisterData>, { rejectWithValue }) => {
-    try {
-      return await updateUserApi(data);
-    } catch (error) {
-      return rejectWithValue(
-        (error as Error).message || 'Не удалось обновить пользователя'
-      );
-    }
-  }
+  async (data: TRegisterData) => await updateUserApi(data)
 );
 
 export const forgotUserPassword = createAsyncThunk(
   'user/forgotPassword',
-  async (email: string, { rejectWithValue }) => {
-    try {
-      await forgotPasswordApi({ email });
-    } catch (error) {
-      return rejectWithValue(
-        (error as Error).message ||
-          'Не удалось восстановить пароль пользователя'
-      );
-    }
-  }
+  async (email: string) => await forgotPasswordApi({ email })
 );
 
 export const resetUserPassword = createAsyncThunk(
   'user/resetPassword',
-  async (
-    { password, token }: { password: string; token: string },
-    { rejectWithValue }
-  ) => {
-    try {
-      await resetPasswordApi({ password, token });
-    } catch (error) {
-      return rejectWithValue(
-        (error as Error).message || 'Не удалось сбросить пароль пользователя'
-      );
-    }
-  }
+  async ({ password, token }: { password: string; token: string }) =>
+    await resetPasswordApi({ password, token })
 );
