@@ -3,18 +3,18 @@
 import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TIngredient } from '@utils-types';
 
-type TBurgerConstructorState = {
+type TBurgerState = {
   bun: TConstructorIngredient | null;
   ingredients: TConstructorIngredient[];
 };
 
-const initialState: TBurgerConstructorState = {
+const initialState: TBurgerState = {
   bun: null,
   ingredients: []
 };
 
-export const burgerConstructorSlice = createSlice({
-  name: 'burgerConstructor',
+export const burgerSlice = createSlice({
+  name: 'burger',
   initialState,
   reducers: {
     addIngredient: {
@@ -61,6 +61,6 @@ export const {
   removeIngredient,
   moveIngredient,
   clearConstructor
-} = burgerConstructorSlice.actions;
+} = burgerSlice.actions;
 
-export default burgerConstructorSlice.reducer;
+export default burgerSlice.reducer;

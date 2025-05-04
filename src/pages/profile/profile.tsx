@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from '@store';
 import { ProfileUI } from '@ui-pages';
-import { FC, SyntheticEvent, useEffect, useState } from 'react';
-import { selectUserData } from '../../services/slices/user/user-selectors';
-import { updateUser } from '../../services/slices/user/user-actions';
+import { SyntheticEvent, useEffect, useState } from 'react';
+import { updateUser, selectUserData } from '@slices';
 
-export const Profile: FC = () => {
+export const Profile = (): JSX.Element => {
   /** TODO: взять переменную из стора */
   const user = useSelector(selectUserData);
 

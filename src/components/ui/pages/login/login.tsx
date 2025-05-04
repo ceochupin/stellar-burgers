@@ -1,4 +1,3 @@
-import { FC, useState } from 'react';
 import {
   Input,
   Button,
@@ -8,14 +7,14 @@ import styles from '../common.module.css';
 import { Link } from 'react-router-dom';
 import { LoginUIProps } from './type';
 
-export const LoginUI: FC<LoginUIProps> = ({
+export const LoginUI = ({
   email,
   setEmail,
   errorText,
   handleSubmit,
   password,
   setPassword
-}) => (
+}: LoginUIProps): JSX.Element => (
   <main className={styles.container}>
     <div className={`pt-6 ${styles.wrapCenter}`}>
       <h3 className='pb-6 text text_type_main-medium'>Вход</h3>

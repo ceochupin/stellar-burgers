@@ -1,10 +1,10 @@
-import { FC, useState, SyntheticEvent } from 'react';
+import { useState, SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { forgotPasswordApi } from '@api';
 import { ForgotPasswordUI } from '@ui-pages';
 
-export const ForgotPassword: FC = () => {
+export const ForgotPassword = (): JSX.Element => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState<Error | null>(null);
 

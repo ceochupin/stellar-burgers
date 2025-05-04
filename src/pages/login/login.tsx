@@ -1,9 +1,9 @@
-import { FC, SyntheticEvent, useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { LoginUI } from '@ui-pages';
 import { useDispatch } from '@store';
-import { loginUser } from '../../services/slices/user/user-actions';
+import { loginUser } from '@slices';
 
-export const Login: FC = () => {
+export const Login = (): JSX.Element => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

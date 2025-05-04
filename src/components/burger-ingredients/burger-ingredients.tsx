@@ -1,14 +1,14 @@
 // TODO: Заведены отдельные статусы при получении ингридиентов через API - реализовать работу статусов в компоненте
 
-import { useState, useRef, useEffect, FC } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { TTabMode } from '@utils-types';
-import { BurgerIngredientsUI } from '../ui/burger-ingredients';
+import { BurgerIngredientsUI } from '@ui';
 import { useSelector } from '@store';
-import { selectIngredientsByAllTypes } from '../../services/slices/burger-ingredients/burger-ingredients-selectors';
+import { selectIngredientsByAllTypes } from '@slices';
 
-export const BurgerIngredients: FC = () => {
+export const BurgerIngredients = (): JSX.Element => {
   const { buns, mains, sauces } = useSelector(selectIngredientsByAllTypes);
 
   const [currentTab, setCurrentTab] = useState<TTabMode>('bun');

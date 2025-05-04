@@ -1,4 +1,3 @@
-import { FC, useState } from 'react';
 import {
   Input,
   Button,
@@ -8,7 +7,7 @@ import styles from '../common.module.css';
 import { Link } from 'react-router-dom';
 import { RegisterUIProps } from './type';
 
-export const RegisterUI: FC<RegisterUIProps> = ({
+export const RegisterUI = ({
   errorText,
   email,
   setEmail,
@@ -17,7 +16,7 @@ export const RegisterUI: FC<RegisterUIProps> = ({
   setPassword,
   userName,
   setUserName
-}) => (
+}: RegisterUIProps): JSX.Element => (
   <main className={styles.container}>
     <div className={`pt-6 ${styles.wrapCenter}`}>
       <h3 className='pb-6 text text_type_main-medium'>Регистрация</h3>

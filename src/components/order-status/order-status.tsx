@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import { OrderStatusProps } from './type';
 import { OrderStatusUI } from '@ui';
 
@@ -8,7 +7,7 @@ const statusText: { [key: string]: string } = {
   created: 'Создан'
 };
 
-export const OrderStatus: FC<OrderStatusProps> = ({ status }) => {
+export const OrderStatus = ({ status }: OrderStatusProps): JSX.Element => {
   let textStyle = '';
   switch (status) {
     case 'pending':

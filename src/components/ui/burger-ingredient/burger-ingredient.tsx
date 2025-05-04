@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './burger-ingredient.module.css';
 
@@ -10,8 +10,13 @@ import {
 
 import { TBurgerIngredientUIProps } from './type';
 
-export const BurgerIngredientUI: FC<TBurgerIngredientUIProps> = memo(
-  ({ ingredient, count, handleAdd, locationState }) => {
+export const BurgerIngredientUI = memo(
+  ({
+    ingredient,
+    count,
+    handleAdd,
+    locationState
+  }: TBurgerIngredientUIProps): JSX.Element => {
     const { image, price, name, _id } = ingredient;
 
     return (

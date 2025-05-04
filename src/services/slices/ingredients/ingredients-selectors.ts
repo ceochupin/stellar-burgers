@@ -3,21 +3,21 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { RootState } from '@store';
 
-const selectIngredientsState = (state: RootState) => state.burgerIngredients;
+const selectIngredientsState = (state: RootState) => state.ingredients;
 
 export const selectIngredientsItems = createSelector(
   [selectIngredientsState],
-  (burgerIngredientsState) => burgerIngredientsState.items
+  (ingredientsState) => ingredientsState.items
 );
 
 export const selectIngredientsStatus = createSelector(
   [selectIngredientsState],
-  (burgerIngredientsState) => burgerIngredientsState.loading
+  (ingredientsState) => ingredientsState.loading
 );
 
 export const selectIngredientsError = createSelector(
   [selectIngredientsState],
-  (burgerIngredientsState) => burgerIngredientsState.error
+  (ingredientsState) => ingredientsState.error
 );
 
 export const selectIngredientsByAllTypes = createSelector(

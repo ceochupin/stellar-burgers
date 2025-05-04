@@ -2,30 +2,30 @@
 
 import { createSlice } from '@reduxjs/toolkit';
 import { TIngredient } from '@utils-types';
-import { getBurgerIngredients } from '@slices';
+import { getIngredients } from '@slices';
 
-type TBurgerIngredientsState = {
+type TIngredientsState = {
   items: TIngredient[];
   loading: boolean;
   error: string | null;
 };
 
-const initialState: TBurgerIngredientsState = {
+const initialState: TIngredientsState = {
   items: [],
   loading: true,
   error: null
 };
 
-export const burgerIngredientsSlice = createSlice({
-  name: 'burgerIngredients',
+export const ingredientsSlice = createSlice({
+  name: 'ingredients',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getBurgerIngredients.fulfilled, (state, action) => {
+    builder.addCase(getIngredients.fulfilled, (state, action) => {
       state.loading = false;
       state.items = action.payload;
     });
   }
 });
 
-export default burgerIngredientsSlice.reducer;
+export default ingredientsSlice.reducer;

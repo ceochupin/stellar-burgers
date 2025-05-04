@@ -3,7 +3,6 @@
 import { getIngredientsApi } from '@api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const getBurgerIngredients = createAsyncThunk(
-  'burgerIngredients/getAll',
-  async () => getIngredientsApi()
+export const getIngredients = createAsyncThunk('ingredients/getAll', async () =>
+  getIngredientsApi()
 );

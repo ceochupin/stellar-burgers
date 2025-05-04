@@ -1,10 +1,9 @@
 import { useSelector } from '@store';
 import { ProfileOrdersUI } from '@ui-pages';
 import { TOrder } from '@utils-types';
-import { FC } from 'react';
-import { selectOrdersListItems } from '../../services/slices/orders-list/orders-list-selectors';
+import { selectOrdersListItems } from '@slices';
 
-export const ProfileOrders: FC = () => {
+export const ProfileOrders = (): JSX.Element => {
   /** TODO: взять переменную из стора */
   const orders: TOrder[] = useSelector(selectOrdersListItems);
 

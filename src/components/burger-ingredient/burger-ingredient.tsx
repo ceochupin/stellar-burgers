@@ -1,13 +1,13 @@
-import { FC, memo } from 'react';
+import { memo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { BurgerIngredientUI } from '@ui';
 import { TBurgerIngredientProps } from './type';
 import { useDispatch } from '@store';
-import { addIngredient } from '../../services/slices/burger-constructor/burger-constructor-slice';
+import { addIngredient } from '@slices';
 
-export const BurgerIngredient: FC<TBurgerIngredientProps> = memo(
-  ({ ingredient, count }) => {
+export const BurgerIngredient = memo(
+  ({ ingredient, count }: TBurgerIngredientProps): JSX.Element => {
     const location = useLocation();
     const dispatch = useDispatch();
 

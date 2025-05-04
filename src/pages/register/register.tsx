@@ -1,15 +1,11 @@
-import { FC, SyntheticEvent, useEffect, useState } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { RegisterUI } from '@ui-pages';
 import { useDispatch, useSelector } from '@store';
-import { registerUser } from '../../services/slices/user/user-actions';
 import { useNavigate } from 'react-router-dom';
-import {
-  selectUserError,
-  selectUserStatus
-} from '../../services/slices/user/user-selectors';
+import { registerUser, selectUserError, selectUserStatus } from '@slices';
 import { Preloader } from '@ui';
 
-export const Register: FC = () => {
+export const Register = (): JSX.Element => {
   const [name, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

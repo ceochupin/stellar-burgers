@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import styles from './app-header.module.css';
 import { TAppHeaderUIProps } from './type';
 import {
@@ -10,7 +9,7 @@ import {
 import { Link, NavLink } from 'react-router-dom';
 import { clsx } from 'clsx';
 
-export const AppHeaderUI: FC<TAppHeaderUIProps> = ({ userName }) => (
+export const AppHeaderUI = ({ userName }: TAppHeaderUIProps): JSX.Element => (
   <header className={`${styles.header} pt-4 pb-4`}>
     <nav className={`${styles.menu}`}>
       <div className={styles.menu_part_left}>

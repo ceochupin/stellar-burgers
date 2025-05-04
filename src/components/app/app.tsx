@@ -16,13 +16,13 @@ import {
 } from '@pages';
 
 import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
-import { OnlyUnAuth, OnlyAuth } from '../protected-route/protected-route';
+import { OnlyUnAuth, OnlyAuth } from '@components';
 import { useDispatch } from '@store';
-import { FC, useEffect } from 'react';
-import { getBurgerIngredients } from '../../services/slices/burger-ingredients/burger-ingredients-actions';
-import { checkUserAuth } from '../../services/slices/user/user-actions';
+import { useEffect } from 'react';
+import { getIngredients } from '@slices';
+import { checkUserAuth } from '@slices';
 
-const App: FC = () => {
+const App = (): JSX.Element => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
@@ -34,7 +34,7 @@ const App: FC = () => {
   };
 
   useEffect(() => {
-    dispatch(getBurgerIngredients());
+    dispatch(getIngredients());
     dispatch(checkUserAuth());
   }, []);
 

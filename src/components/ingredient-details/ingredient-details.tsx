@@ -1,11 +1,11 @@
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Preloader } from '@ui';
 import { IngredientDetailsUI } from '@ui';
 import { useSelector } from '@store';
-import { makeSelectIngredientById } from '../../services/slices/burger-ingredients/burger-ingredients-selectors';
+import { makeSelectIngredientById } from '@slices';
 import { useParams } from 'react-router-dom';
 
-export const IngredientDetails: FC = () => {
+export const IngredientDetails = (): JSX.Element => {
   const { id } = useParams();
 
   // TODO: Придумать заглушку вывода ошибки

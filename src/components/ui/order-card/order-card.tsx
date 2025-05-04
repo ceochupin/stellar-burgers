@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   CurrencyIcon,
@@ -10,8 +10,12 @@ import styles from './order-card.module.css';
 import { OrderCardUIProps } from './type';
 import { OrderStatus } from '@components';
 
-export const OrderCardUI: FC<OrderCardUIProps> = memo(
-  ({ orderInfo, maxIngredients, locationState }) => (
+export const OrderCardUI = memo(
+  ({
+    orderInfo,
+    maxIngredients,
+    locationState
+  }: OrderCardUIProps): JSX.Element => (
     <Link
       to={orderInfo.number.toString()}
       relative='path'

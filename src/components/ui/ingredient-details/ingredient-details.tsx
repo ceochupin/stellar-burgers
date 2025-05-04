@@ -1,9 +1,9 @@
-import React, { FC, memo } from 'react';
+import { memo } from 'react';
 import styles from './ingredient-details.module.css';
 import { IngredientDetailsUIProps } from './type';
 
-export const IngredientDetailsUI: FC<IngredientDetailsUIProps> = memo(
-  ({ ingredientData }) => {
+export const IngredientDetailsUI = memo(
+  ({ ingredientData }: IngredientDetailsUIProps): JSX.Element => {
     const { name, image_large, calories, proteins, fat, carbohydrates } =
       ingredientData;
 

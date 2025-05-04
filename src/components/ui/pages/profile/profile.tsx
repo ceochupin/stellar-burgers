@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import { Button, Input } from '@zlden/react-developer-burger-ui-components';
 import styles from './profile.module.css';
 import commonStyles from '../common.module.css';
@@ -7,14 +5,14 @@ import commonStyles from '../common.module.css';
 import { ProfileUIProps } from './type';
 import { ProfileMenu } from '@components';
 
-export const ProfileUI: FC<ProfileUIProps> = ({
+export const ProfileUI = ({
   formValue,
   isFormChanged,
   updateUserError,
   handleSubmit,
   handleCancel,
   handleInputChange
-}) => (
+}: ProfileUIProps): JSX.Element => (
   <main className={`${commonStyles.container}`}>
     <div className={`mt-30 mr-15 ${styles.menu}`}>
       <ProfileMenu />

@@ -1,16 +1,14 @@
-import { FC } from 'react';
-
 import { Input, Button } from '@zlden/react-developer-burger-ui-components';
 import styles from '../common.module.css';
 import { Link } from 'react-router-dom';
 import { PageUIProps } from '../common-type';
 
-export const ForgotPasswordUI: FC<PageUIProps> = ({
+export const ForgotPasswordUI = ({
   errorText,
   email,
   setEmail,
   handleSubmit
-}) => (
+}: PageUIProps): JSX.Element => (
   <main className={styles.container}>
     <div className={`pt-6 ${styles.wrapCenter}`}>
       <h3 className='pb-6 text text_type_main-medium'>Восстановление пароля</h3>

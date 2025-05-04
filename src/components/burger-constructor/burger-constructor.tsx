@@ -1,14 +1,10 @@
-import { FC } from 'react';
 import { BurgerConstructorUI } from '@ui';
 import { useSelector } from '@store';
-import {
-  selectConstructorItems,
-  selectConstructorTotalPrice
-} from '../../services/slices/burger-constructor/burger-constructor-selectors';
+import { selectBurgerItems, selectBurgerTotalPrice } from '@slices';
 
-export const BurgerConstructor: FC = () => {
-  const constructorItems = useSelector(selectConstructorItems);
-  const price = useSelector(selectConstructorTotalPrice);
+export const BurgerConstructor = (): JSX.Element => {
+  const constructorItems = useSelector(selectBurgerItems);
+  const price = useSelector(selectBurgerTotalPrice);
 
   const orderRequest = false;
   const orderModalData = null;

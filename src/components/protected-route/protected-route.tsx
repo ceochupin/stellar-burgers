@@ -1,11 +1,7 @@
-import { JSX } from 'react';
 import { Preloader } from '@ui';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from '@store';
-import {
-  selectIsAuthChecked,
-  selectUserData
-} from '../../services/slices/user/user-selectors';
+import { selectIsAuthChecked, selectUserData } from '@slices';
 
 type TProtectedProps = {
   onlyUnAuth?: boolean;

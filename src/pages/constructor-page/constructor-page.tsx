@@ -1,9 +1,8 @@
 import { useSelector } from '@store';
-import { FC } from 'react';
-import { selectIngredientsStatus } from '../../services/slices/burger-ingredients/burger-ingredients-selectors';
+import { selectIngredientsStatus } from '@slices';
 import { ConstructorPageUI } from '@ui-pages';
 
-export const ConstructorPage: FC = () => {
+export const ConstructorPage = (): JSX.Element => {
   const isIngredientsLoading = useSelector(selectIngredientsStatus);
 
   return <ConstructorPageUI isIngredientsLoading={isIngredientsLoading} />;

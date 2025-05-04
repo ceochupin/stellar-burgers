@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import {
   Button,
   ConstructorElement,
@@ -10,14 +9,14 @@ import { TConstructorIngredient } from '@utils-types';
 import { BurgerConstructorElement, Modal } from '@components';
 import { Preloader, OrderDetailsUI } from '@ui';
 
-export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
+export const BurgerConstructorUI = ({
   constructorItems,
   orderRequest,
   price,
   orderModalData,
   onOrderClick,
   closeOrderModal
-}) => (
+}: BurgerConstructorUIProps): JSX.Element => (
   <section className={styles.burger_constructor}>
     {constructorItems.bun ? (
       <div className={`${styles.element} mb-4 mr-4`}>
