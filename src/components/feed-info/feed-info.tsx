@@ -6,7 +6,7 @@ import { useSelector } from '@store';
 import {
   selectFeedInfoAllTotal,
   selectFeedInfoItems
-} from '../../slices/feed-info/feed-info-selectors';
+} from '../../services/slices/feed-info/feed-info-selectors';
 
 const getOrders = (orders: TOrder[], status: string): number[] =>
   orders

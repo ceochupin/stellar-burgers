@@ -52,7 +52,7 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
         <div
           className={`${styles.noIngredients} mr-2 text text_type_main-default`}
         >
-          Выберите ингредиенты
+          Выберите начинку
         </div>
       )}
     </ul>

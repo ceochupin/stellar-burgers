@@ -12,7 +12,7 @@ export const selectIngredientsItems = createSelector(
 
 export const selectIngredientsStatus = createSelector(
   [selectIngredientsState],
-  (burgerIngredientsState) => burgerIngredientsState.status
+  (burgerIngredientsState) => burgerIngredientsState.loading
 );
 
 export const selectIngredientsError = createSelector(

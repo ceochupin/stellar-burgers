@@ -19,7 +19,8 @@ import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 import { OnlyUnAuth, OnlyAuth } from '../protected-route/protected-route';
 import { useDispatch } from '@store';
 import { FC, useEffect } from 'react';
-import { getBurgerIngredients } from '../../slices/burger-ingredients/burger-ingredients-actions';
+import { getBurgerIngredients } from '../../services/slices/burger-ingredients/burger-ingredients-actions';
+import { checkUserAuth } from '../../services/slices/user/user-actions';
 
 const App: FC = () => {
   const navigate = useNavigate();
@@ -34,7 +35,8 @@ const App: FC = () => {
 
   useEffect(() => {
     dispatch(getBurgerIngredients());
-  }, [dispatch]);
+    dispatch(checkUserAuth());
+  }, []);
 
   return (
     <div className={styles.app}>

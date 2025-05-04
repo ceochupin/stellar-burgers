@@ -22,7 +22,7 @@ export const selectFeedInfoTotalToday = createSelector(
 
 export const selectFeedInfoStatus = createSelector(
   [selectFeedInfoState],
-  (feedInfoState) => feedInfoState.status
+  (feedInfoState) => feedInfoState.loading
 );
 
 export const selectFeedInfoError = createSelector(

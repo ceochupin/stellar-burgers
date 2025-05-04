@@ -1,12 +1,12 @@
 import { FC, SyntheticEvent, useEffect, useState } from 'react';
 import { RegisterUI } from '@ui-pages';
 import { useDispatch, useSelector } from '@store';
-import { registerUser } from '../../slices/user/user-actions';
+import { registerUser } from '../../services/slices/user/user-actions';
 import { useNavigate } from 'react-router-dom';
 import {
   selectUserError,
   selectUserStatus
-} from '../../slices/user/user-selectors';
+} from '../../services/slices/user/user-selectors';
 import { Preloader } from '@ui';
 
 export const Register: FC = () => {
@@ -17,7 +17,7 @@ export const Register: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const error = useSelector(selectUserError);
-  const status = useSelector(selectUserStatus);
+  const loading = useSelector(selectUserStatus);
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -25,14 +25,14 @@ export const Register: FC = () => {
   };
 
   useEffect(() => {
-    if (status === 'succeeded' && !error && name && email) {
+    if (!loading && !error && name && email) {
       navigate('/');
     }
-  }, [status, error, name, email, navigate]);
+  }, [loading, error, name, email, navigate]);
 
   return (
     <>
-      {!(status === 'succeeded') ? (
+      {loading ? (
         <Preloader />
       ) : (
         <RegisterUI

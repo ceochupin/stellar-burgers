@@ -12,7 +12,7 @@ export const selectOrdersListItems = createSelector(
 
 export const selectOrdersListStatus = createSelector(
   [selectOrdersListState],
-  (ordersListState) => ordersListState.status
+  (ordersListState) => ordersListState.loading
 );
 
 export const selectOrdersListError = createSelector(

@@ -17,15 +17,10 @@ export const selectIsAuthChecked = createSelector(
 
 export const selectUserStatus = createSelector(
   [selectUserState],
-  (userState) => userState.status
+  (userState) => userState.loading
 );
 
 export const selectUserError = createSelector(
   [selectUserState],
   (userState) => userState.error
-);
-
-export const selectIsAuthUser = createSelector(
-  [selectUserData, selectIsAuthChecked],
-  (user, isAuthChecked) => isAuthChecked && user !== null
 );

@@ -4,7 +4,7 @@ import { useSelector } from '@store';
 import {
   selectConstructorItems,
   selectConstructorTotalPrice
-} from '../../slices/burger-constructor/burger-constructor-selectors';
+} from '../../services/slices/burger-constructor/burger-constructor-selectors';
 
 export const BurgerConstructor: FC = () => {
   const constructorItems = useSelector(selectConstructorItems);

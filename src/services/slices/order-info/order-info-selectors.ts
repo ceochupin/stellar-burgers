@@ -12,7 +12,7 @@ export const selectOrderInfoItem = createSelector(
 
 export const selectOrderInfoStatus = createSelector(
   [selectOrderInfoState],
-  (orderInfoState) => orderInfoState.status
+  (orderInfoState) => orderInfoState.loading
 );
 
 export const selectOrderInfoError = createSelector(

@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer';
 import { TTabMode } from '@utils-types';
 import { BurgerIngredientsUI } from '../ui/burger-ingredients';
 import { useSelector } from '@store';
-import { selectIngredientsByAllTypes } from '../../slices/burger-ingredients/burger-ingredients-selectors';
+import { selectIngredientsByAllTypes } from '../../services/slices/burger-ingredients/burger-ingredients-selectors';
 
 export const BurgerIngredients: FC = () => {
   const { buns, mains, sauces } = useSelector(selectIngredientsByAllTypes);

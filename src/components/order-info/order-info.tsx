@@ -1,12 +1,11 @@
 import { FC, useEffect, useMemo } from 'react';
-import { Preloader } from '@ui';
-import { OrderInfoUI } from '@ui';
+import { Preloader, OrderInfoUI } from '@ui';
 import { TIngredient } from '@utils-types';
 import { useDispatch, useSelector } from '@store';
-import { selectIngredientsItems } from '../../slices/burger-ingredients/burger-ingredients-selectors';
+import { selectIngredientsItems } from '../../services/slices/burger-ingredients/burger-ingredients-selectors';
 import { useParams } from 'react-router-dom';
-import { getOrderInfo } from '../../slices/order-info/order-info-actions';
-import { selectOrderInfoItem } from '../../slices/order-info/order-info-selectors';
+import { getOrderInfo } from '../../services/slices/order-info/order-info-actions';
+import { selectOrderInfoItem } from '../../services/slices/order-info/order-info-selectors';
 
 export const OrderInfo: FC = () => {
   const dispatch = useDispatch();
