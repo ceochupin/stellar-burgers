@@ -21,12 +21,12 @@ const Protected = ({
   }
 
   if (!onlyUnAuth && !user) {
-    return <Navigate to={'/login'} state={{ from: location }} replace />;
+    return <Navigate to={'/login'} state={{ from: location }} />;
   }
 
   if (onlyUnAuth && user) {
     const { from } = location.state ?? { from: { pathname: '/' } };
-    return <Navigate to={from} replace />;
+    return <Navigate to={from} />;
   }
 
   return component;

@@ -73,8 +73,8 @@ module.exports = {
     alias: {
       '@pages': path.resolve(__dirname, './src/pages'),
       '@components': path.resolve(__dirname, './src/components'),
-      '@ui': path.resolve(__dirname, './src/components/ui'),
-      '@ui-pages': path.resolve(__dirname, './src/components/ui/pages'),
+      '@ui': path.resolve(__dirname, './src/ui/components'),
+      '@ui-pages': path.resolve(__dirname, './src/ui/pages'),
       '@utils-types': path.resolve(__dirname, './src/utils/types'),
       '@api': path.resolve(__dirname, './src/utils/burger-api'),
       '@slices': path.resolve(__dirname, './src/services/slices'),

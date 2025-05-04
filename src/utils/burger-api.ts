@@ -38,8 +38,7 @@ type TNewOrderResponse = TServerResponse<{
 }>;
 
 type TOrderResponse = TServerResponse<{
-  // orders: TOrder[];
-  orders: TOrder | null;
+  orders: TOrder[];
 }>;
 
 export type TLoginData = {
@@ -146,7 +145,7 @@ export const orderBurgerApi = (data: string[]): Promise<TOrder> =>
     })
   }).then((data) => (data.success ? data.order : Promise.reject(data)));
 
-export const getOrderByNumberApi = (number: number): Promise<TOrder | null> =>
+export const getOrderByNumberApi = (number: number): Promise<TOrder> =>
   fetch(`${URL}/orders/${number}`, {
     method: 'GET',
     headers: {
@@ -154,7 +153,7 @@ export const getOrderByNumberApi = (number: number): Promise<TOrder | null> =>
     }
   })
     .then(checkResponse<TOrderResponse>)
-    .then((data) => (data.success ? data.orders : Promise.reject(data)));
+    .then((data) => (data.success ? data.orders[0] : Promise.reject(data)));
 
 export const registerUserApi = (data: TRegisterData): Promise<TUser> =>
   fetch(`${URL}/auth/register`, {

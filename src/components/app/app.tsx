@@ -47,6 +47,8 @@ const App = (): JSX.Element => {
 
         <Route path='/feed' element={<Feed />} />
 
+        <Route path='/feed/:number' element={<OrderInfo />} />
+
         <Route path='/ingredients/:id' element={<IngredientDetails />} />
 
         <Route path='/login' element={<OnlyUnAuth component={<Login />} />} />
@@ -71,6 +73,11 @@ const App = (): JSX.Element => {
         <Route
           path='/profile/orders'
           element={<OnlyAuth component={<ProfileOrders />} />}
+        />
+
+        <Route
+          path='/profile/orders/:number'
+          element={<OnlyAuth component={<OrderInfo />} />}
         />
 
         <Route path='*' element={<NotFound404 />} />

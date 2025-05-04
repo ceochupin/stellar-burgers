@@ -15,15 +15,15 @@ export const OrderInfo = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getOrderInfo(Number(number)));
-  });
+  }, [dispatch, number]);
 
   const orderData = useSelector(selectOrderInfoItem);
-
   const ingredients: TIngredient[] = useSelector(selectIngredientsItems);
 
   /* Готовим данные для отображения */
   const orderInfo = useMemo(() => {
-    if (!orderData || !ingredients.length) return null;
+    if (!orderData || !ingredients.length || !orderData.ingredients)
+      return null;
 
     const date = new Date(orderData.createdAt);
 

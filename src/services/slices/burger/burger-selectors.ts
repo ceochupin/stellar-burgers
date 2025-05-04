@@ -43,11 +43,8 @@ export const selectBurgerItemsIds = createSelector(
   [selectBurgerBun, selectBurgerIngredients],
   (bun, ingredients) => {
     const ingredientsIds = ingredients.map((item) => item._id);
-    const bunId = bun ? bun._id : null;
+    const bunId = bun ? [bun._id] : [];
 
-    return {
-      ingredients: ingredientsIds,
-      bun: bunId
-    };
+    return [...bunId, ...ingredientsIds, ...bunId];
   }
 );
