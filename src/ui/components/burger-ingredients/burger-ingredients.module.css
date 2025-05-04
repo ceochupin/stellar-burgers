@@ -1,0 +1,46 @@
+.burger_ingredients {
+  font-family: 'Jet Brains Mono';
+  color: #f2f2f3;
+  max-width: 600px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  margin: 0;
+}
+
+.tab {
+  width: 120px;
+}
+
+.content {
+  overflow-y: scroll;
+  scrollbar-color: #8585AD #2F2F37;
+	scrollbar-width: thin;
+}
+
+.content::-webkit-scrollbar {
+  background-color: #2F2F37;
+  width: 8px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: #8585AD;
+}
+
+.menu {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.categories {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+}

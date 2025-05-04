@@ -1,0 +1,21 @@
+// TODO: Поработать с типизацией селекторов
+
+import { createSelector } from '@reduxjs/toolkit';
+import { RootState } from '@store';
+
+const selectOrdersListState = (state: RootState) => state.ordersList;
+
+export const selectOrdersListItems = createSelector(
+  [selectOrdersListState],
+  (ordersListState) => ordersListState.items
+);
+
+export const selectOrdersListStatus = createSelector(
+  [selectOrdersListState],
+  (ordersListState) => ordersListState.loading
+);
+
+export const selectOrdersListError = createSelector(
+  [selectOrdersListState],
+  (ordersListState) => ordersListState.error
+);

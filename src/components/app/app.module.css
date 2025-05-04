@@ -6,19 +6,6 @@
   color: #f2f2f3;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #2f2f37;
-}
-
-::-webkit-scrollbar-thumb {
-  border: 3px solid #8585ad;
-  background: #8585ad;
-}
-
 .detailPageWrap {
   margin: 120px auto;
 }

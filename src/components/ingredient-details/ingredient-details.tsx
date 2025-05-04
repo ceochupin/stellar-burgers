@@ -1,10 +1,23 @@
-import { FC } from 'react';
-import { Preloader } from '../ui/preloader';
-import { IngredientDetailsUI } from '../ui/ingredient-details';
+import { useMemo } from 'react';
+import { Preloader } from '@ui';
+import { IngredientDetailsUI } from '@ui';
+import { useSelector } from '@store';
+import { makeSelectIngredientById } from '@slices';
+import { useParams } from 'react-router-dom';
 
-export const IngredientDetails: FC = () => {
-  /** TODO: взять переменную из стора */
-  const ingredientData = null;
+export const IngredientDetails = (): JSX.Element => {
+  const { id } = useParams();
+
+  // TODO: Придумать заглушку вывода ошибки
+  if (!id) {
+    return <Preloader />;
+  }
+
+  const selectIngredientById = useMemo(() => makeSelectIngredientById(), []);
+
+  const ingredientData = useSelector((state) =>
+    selectIngredientById(state, id)
+  );
 
   if (!ingredientData) {
     return <Preloader />;
