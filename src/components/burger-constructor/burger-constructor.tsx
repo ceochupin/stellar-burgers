@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { BurgerConstructorUI } from '@ui';
 import { useDispatch, useSelector } from '@store';
 import {

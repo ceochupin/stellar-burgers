@@ -1,7 +1,7 @@
 import { Preloader } from '@ui';
 import { FeedUI } from '@ui-pages';
 import { TOrder } from '@utils-types';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from '@store';
 import { selectFeedInfoItems, getFeedInfo } from '@slices';
 

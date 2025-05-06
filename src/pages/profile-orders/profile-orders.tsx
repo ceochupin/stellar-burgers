@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from '@store';
 import { ProfileOrdersUI } from '@ui-pages';
 import { TOrder } from '@utils-types';
 import { getUserOrders, selectUserOrdersItems } from '@slices';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 export const ProfileOrders = (): JSX.Element => {
   /** TODO: взять переменную из стора */

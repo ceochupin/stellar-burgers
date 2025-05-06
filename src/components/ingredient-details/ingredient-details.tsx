@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Preloader } from '@ui';
 import { IngredientDetailsUI } from '@ui';
 import { useSelector } from '@store';

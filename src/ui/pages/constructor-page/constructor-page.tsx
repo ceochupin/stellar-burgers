@@ -1,5 +1,6 @@
 import styles from './constructor-page.module.css';
 
+import React from 'react';
 import { ConstructorPageUIProps } from './type';
 import { Preloader } from '@ui';
 import { BurgerIngredients, BurgerConstructor } from '@components';

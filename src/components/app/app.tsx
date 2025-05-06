@@ -1,6 +1,7 @@
 import '../../index.css';
 import styles from './app.module.css';
 
+import React from 'react';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
 import {

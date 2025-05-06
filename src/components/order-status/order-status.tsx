@@ -1,3 +1,4 @@
+import React from 'react';
 import { OrderStatusProps } from './type';
 import { OrderStatusUI } from '@ui';
 

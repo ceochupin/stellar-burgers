@@ -2,6 +2,7 @@ import { Input, Button } from '@zlden/react-developer-burger-ui-components';
 import styles from '../common.module.css';
 import { Link } from 'react-router-dom';
 import { PageUIProps } from '../common-type';
+import React from 'react';
 
 export const ForgotPasswordUI = ({
   errorText,

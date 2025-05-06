@@ -1,3 +1,4 @@
+import React from 'react';
 import { TOrder } from '@utils-types';
 import { FeedInfoUI } from '@ui';
 import { useSelector } from '@store';

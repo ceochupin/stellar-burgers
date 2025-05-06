@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import { RegisterUI } from '@ui-pages';
 import { useDispatch, useSelector } from '@store';
 import { registerUser, selectUserError } from '@slices';

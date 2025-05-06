@@ -1,4 +1,5 @@
 import styles from './profile-orders.module.css';
+import React from 'react';
 
 import { ProfileOrdersUIProps } from './type';
 import { ProfileMenu, OrdersList } from '@components';
