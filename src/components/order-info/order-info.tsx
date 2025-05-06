@@ -4,9 +4,9 @@ import { TIngredient } from '@utils-types';
 import { useDispatch, useSelector } from '@store';
 import { useParams } from 'react-router-dom';
 import {
-  getOrderInfo,
-  selectOrderInfoItem,
-  selectIngredientsItems
+  getOrderByNumber,
+  selectIngredientsItems,
+  selectOrderByNumber
 } from '@slices';
 
 export const OrderInfo = (): JSX.Element => {
@@ -14,10 +14,10 @@ export const OrderInfo = (): JSX.Element => {
   const { number } = useParams();
 
   useEffect(() => {
-    dispatch(getOrderInfo(Number(number)));
+    dispatch(getOrderByNumber(Number(number)));
   }, [dispatch, number]);
 
-  const orderData = useSelector(selectOrderInfoItem);
+  const orderData = useSelector(selectOrderByNumber);
   const ingredients: TIngredient[] = useSelector(selectIngredientsItems);
 
   /* Готовим данные для отображения */

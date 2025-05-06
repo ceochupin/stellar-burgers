@@ -1,5 +1,3 @@
-// TODO: Типизировать createAsyncThunk
-
 import {
   forgotPasswordApi,
   getUserApi,
@@ -11,17 +9,17 @@ import {
   TRegisterData,
   updateUserApi
 } from '@api';
-import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getCookie } from '@cookie';
-import { TUser } from '@utils-types';
+import { setIsAuthChecked, setUser } from './auth-slice';
 
 export const registerUser = createAsyncThunk(
-  'user/register',
+  'auth/register',
   async (data: TRegisterData) => registerUserApi(data)
 );
 
 export const loginUser = createAsyncThunk(
-  'user/login',
+  'auth/login',
   async (data: TLoginData) => loginUserApi(data)
 );
 
@@ -30,31 +28,23 @@ export const logoutUser = createAsyncThunk('user/logout', async () =>
 );
 
 export const updateUser = createAsyncThunk(
-  'user/update',
+  'auth/update',
   async (data: TRegisterData) => updateUserApi(data)
 );
 
 export const forgotUserPassword = createAsyncThunk(
-  'user/forgotPassword',
+  'auth/forgotPassword',
   async (email: string) => forgotPasswordApi({ email })
 );
 
 export const resetUserPassword = createAsyncThunk(
-  'user/resetPassword',
+  'auth/resetPassword',
   async ({ password, token }: { password: string; token: string }) =>
     resetPasswordApi({ password, token })
 );
 
-export const setIsAuthChecked = createAction<boolean, 'user/setIsAuthChecked'>(
-  'user/setIsAuthChecked'
-);
-
-export const setUser = createAction<TUser | null, 'user/setUser'>(
-  'user/setUser'
-);
-
 export const checkUserAuth = createAsyncThunk(
-  'user/checkUserAuth',
+  'auth/checkUserAuth',
   async (_, { dispatch }) => {
     if (getCookie('accessToken')) {
       getUserApi()

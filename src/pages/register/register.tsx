@@ -1,7 +1,7 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { RegisterUI } from '@ui-pages';
 import { useDispatch, useSelector } from '@store';
-import { registerUser, selectUserError } from '@slices';
+import { registerUser, selectAuthError } from '@slices';
 
 export const Register = (): JSX.Element => {
   const [name, setUserName] = useState('');
@@ -9,7 +9,7 @@ export const Register = (): JSX.Element => {
   const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
-  const error = useSelector(selectUserError) || undefined;
+  const error = useSelector(selectAuthError) || undefined;
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();

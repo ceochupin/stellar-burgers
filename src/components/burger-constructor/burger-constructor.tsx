@@ -4,14 +4,15 @@ import { BurgerConstructorUI } from '@ui';
 import { useDispatch, useSelector } from '@store';
 import {
   clearConstructor,
-  clearUserOrderItem,
-  createUserOrder,
-  selectBurgerItems,
+  clearNewOrder,
+  createNewOrder,
+  selectBurgerBun,
+  selectBurgerIngredients,
   selectBurgerItemsIds,
   selectBurgerTotalPrice,
-  selectUserData,
-  selectUserOrdersItem,
-  selectUserOrdersStatus
+  selectNewOrder,
+  selectNewOrderStatus,
+  selectUserData
 } from '@slices';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -20,27 +21,31 @@ export const BurgerConstructor = (): JSX.Element => {
   const location = useLocation();
   const dispatch = useDispatch();
 
-  const constructorItems = useSelector(selectBurgerItems);
-  const price = useSelector(selectBurgerTotalPrice);
   const user = useSelector(selectUserData);
-  const orderItems = useSelector(selectBurgerItemsIds);
 
-  const orderRequest = useSelector(selectUserOrdersStatus);
-  const orderModalData = useSelector(selectUserOrdersItem);
+  const bun = useSelector(selectBurgerBun);
+  const ingredients = useSelector(selectBurgerIngredients);
+  const price = useSelector(selectBurgerTotalPrice);
+  const orderItemsIds = useSelector(selectBurgerItemsIds);
+
+  const constructorItems = { bun, ingredients };
+
+  const orderRequest = useSelector(selectNewOrderStatus);
+  const orderModalData = useSelector(selectNewOrder);
 
   const onOrderClick = () => {
-    if (!constructorItems.bun || orderRequest) return;
+    if (!bun || orderRequest) return;
 
     if (!user) {
       navigate('/login', { state: { from: location } });
       return;
     }
 
-    dispatch(createUserOrder(orderItems));
+    dispatch(createNewOrder(orderItemsIds));
   };
 
   const closeOrderModal = () => {
-    dispatch(clearUserOrderItem());
+    dispatch(clearNewOrder());
     dispatch(clearConstructor());
   };
 
