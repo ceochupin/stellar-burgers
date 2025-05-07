@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { TOrder } from '@utils-types';
 import { FeedInfoUI } from './ui/FeedInfoUI';
-import { useSelector } from '@store';
+import { useSelector } from '@redux-store';
 import {
   selectFeedOrders,
   selectFeedOrdersTotal,

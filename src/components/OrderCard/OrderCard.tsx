@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import { OrderCardProps } from './type';
 import { OrderCardUI } from './ui/OrderCardUI';
-import { useSelector } from '@store';
+import { useSelector } from '@redux-store';
 import { selectOrderInfo } from '@slices';
 
 // TODO: вынести в константу

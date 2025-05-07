@@ -1,20 +1,15 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { RootState } from '@store';
+import { selectIngredientsItems } from './ingredients-slice';
+import { selectBurgerBun, selectBurgerIngredients } from '../burger';
 
 // поиск ингредиента по id
-const selectIngredientsItemsState = (state: RootState) =>
-  state.ingredients.items;
-
 export const selectIngredientById = (id: string) =>
   createSelector(
-    [selectIngredientsItemsState],
+    [selectIngredientsItems],
     (ingredients) => ingredients.find((item) => item._id === id) || null
   );
 
 // каунтеры для ингредиентов
-const selectBurgerBun = (state: RootState) => state.burger.bun;
-const selectBurgerIngredients = (state: RootState) => state.burger.ingredients;
-
 export const selectIngredientsCounters = createSelector(
   [selectBurgerBun, selectBurgerIngredients],
   (bun, ingredients) => {

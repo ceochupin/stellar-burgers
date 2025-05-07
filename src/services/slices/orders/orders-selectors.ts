@@ -1,18 +1,20 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { RootState } from '@store';
 import { TIngredient, TOrder } from '@utils-types';
+import { selectIngredientsItems } from '../ingredients';
+import { selectOrderByNumber } from './orders-slice';
 
 // селектор детального заказа
-const selectIngredientsItemsState = (state: RootState) =>
-  state.ingredients.items;
+// const selectIngredientsItemsState = (state: RootState) =>
+//   state.ingredients.items;
 
-const selectOrderByNumber = (state: RootState) => state.orders.orderByNumber;
+// const selectOrderByNumber = (state: RootState) => state.orders.orderByNumber;
 
 // TODO: вынести в константу
 const maxIngredients = 6;
 
+// селектор карточки заказа в ленте
 export const selectOrderInfo = (order: TOrder) =>
-  createSelector([selectIngredientsItemsState], (ingredients) => {
+  createSelector([selectIngredientsItems], (ingredients) => {
     if (!ingredients.length) return null;
 
     const ingredientsMap = new Map(ingredients.map((ing) => [ing._id, ing]));
@@ -33,8 +35,9 @@ export const selectOrderInfo = (order: TOrder) =>
     };
   });
 
+// селектор детального заказа
 export const selectOrderDetails = createSelector(
-  [selectOrderByNumber, selectIngredientsItemsState],
+  [selectOrderByNumber, selectIngredientsItems],
   (orderData, ingredients) => {
     if (!orderData || !ingredients.length || !orderData.ingredients)
       return null;

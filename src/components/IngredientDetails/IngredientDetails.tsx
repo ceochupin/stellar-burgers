@@ -1,7 +1,7 @@
 import React from 'react';
 import { Preloader } from '@components';
 import { IngredientDetailsUI } from './ui/IngredientDetailsUI';
-import { useSelector } from '@store';
+import { useSelector } from '@redux-store';
 import { selectIngredientById } from '@slices';
 import { useParams } from 'react-router-dom';
 

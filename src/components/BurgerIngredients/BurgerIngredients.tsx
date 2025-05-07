@@ -1,11 +1,9 @@
-// TODO: Заведены отдельные статусы при получении ингридиентов через API - реализовать работу статусов в компоненте
-
 import React, { useState, useRef, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { TTabMode } from '@utils-types';
 import { BurgerIngredientsUI } from './ui/BurgerIngredientsUI';
-import { useSelector } from '@store';
+import { useSelector } from '@redux-store';
 import { selectIngredientsByAllTypes } from '@slices';
 
 export const BurgerIngredients = (): JSX.Element => {

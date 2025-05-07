@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Preloader } from '@components';
 import { OrderInfoUI } from './ui/OrderInfoUI';
-import { useDispatch, useSelector } from '@store';
+import { useDispatch, useSelector } from '@redux-store';
 import { useParams } from 'react-router-dom';
 import {
   clearOrderByNumber,

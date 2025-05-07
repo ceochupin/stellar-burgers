@@ -18,7 +18,7 @@ import {
 
 import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 import { OnlyUnAuth, OnlyAuth } from '@components';
-import { useDispatch } from '@store';
+import { useDispatch } from '@redux-store';
 import { useEffect } from 'react';
 import { getIngredients } from '@slices';
 import { checkUserAuth } from '@slices';

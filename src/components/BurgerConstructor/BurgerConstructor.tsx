@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BurgerConstructorUI } from './ui/BurgerConstructorUI';
-import { useDispatch, useSelector } from '@store';
+import { useDispatch, useSelector } from '@redux-store';
 import {
   clearConstructor,
   clearNewOrder,
