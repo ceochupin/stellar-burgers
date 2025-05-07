@@ -20,7 +20,6 @@
     "paths": {
       "@pages": ["src/pages"],
       "@components": ["src/components"],
-      "@ui": ["src/ui/components"],
       "@utils-types": ["src/utils/types"],
       "@api": ["src/utils/burger-api"],
       "@slices": ["src/services/slices"],

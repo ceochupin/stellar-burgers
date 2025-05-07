@@ -2,4 +2,4 @@ export * from './auth';
 export * from './ingredients';
 export * from './burger';
 export * from './orders';
-export * from './new-order';
+export * from './newOrder';

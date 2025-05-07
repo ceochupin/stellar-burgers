@@ -1,0 +1,1 @@
+export { FeedInfo } from './FeedInfo';
