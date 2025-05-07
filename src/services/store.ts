@@ -6,23 +6,19 @@ import {
 } from 'react-redux';
 
 import {
+  authSlice,
   ingredientsSlice,
   burgerSlice,
-  feedInfoSlice,
-  ordersListSlice,
-  orderInfoSlice,
-  userSlice,
-  userOrdersSlice
+  ordersSlice,
+  newOrderSlice
 } from '@slices';
 
 const rootReducer = combineSlices(
+  authSlice,
   ingredientsSlice,
   burgerSlice,
-  feedInfoSlice,
-  ordersListSlice,
-  orderInfoSlice,
-  userSlice,
-  userOrdersSlice
+  ordersSlice,
+  newOrderSlice
 );
 
 const store = configureStore({

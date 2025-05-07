@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { BurgerIngredientUI } from '@ui';
@@ -11,6 +11,8 @@ export const BurgerIngredient = memo(
     const location = useLocation();
     const dispatch = useDispatch();
 
+    const locationState = { background: location };
+
     const handleAdd = () => {
       dispatch(addIngredient(ingredient));
     };
@@ -19,7 +21,7 @@ export const BurgerIngredient = memo(
       <BurgerIngredientUI
         ingredient={ingredient}
         count={count}
-        locationState={{ background: location }}
+        locationState={locationState}
         handleAdd={handleAdd}
       />
     );

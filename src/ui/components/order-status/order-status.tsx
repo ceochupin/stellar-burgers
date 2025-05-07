@@ -1,3 +1,4 @@
+import React from 'react';
 import { OrderStatusUIProps } from './type';
 
 export const OrderStatusUI = ({

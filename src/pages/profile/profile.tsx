@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from '@store';
-import { ProfileUI } from '@ui-pages';
-import { SyntheticEvent, useEffect, useState } from 'react';
+import { ProfileUI } from './ui/ProfileUI';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 import { updateUser, selectUserData } from '@slices';
 
 export const Profile = (): JSX.Element => {

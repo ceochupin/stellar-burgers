@@ -1,3 +1,4 @@
+import React from 'react';
 import { OrderStatusProps } from './type';
 import { OrderStatusUI } from '@ui';
 
@@ -20,5 +21,5 @@ export const OrderStatus = ({ status }: OrderStatusProps): JSX.Element => {
       textStyle = '#F2F2F3';
   }
 
-  return <OrderStatusUI textStyle={textStyle} text={statusText[textStyle]} />;
+  return <OrderStatusUI textStyle={textStyle} text={statusText[status]} />;
 };

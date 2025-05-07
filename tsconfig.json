@@ -21,7 +21,6 @@
       "@pages": ["src/pages"],
       "@components": ["src/components"],
       "@ui": ["src/ui/components"],
-      "@ui-pages": ["src/ui/pages"],
       "@utils-types": ["src/utils/types"],
       "@api": ["src/utils/burger-api"],
       "@slices": ["src/services/slices"],

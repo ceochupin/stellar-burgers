@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import type { Preview } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -14,11 +15,14 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <BrowserRouter>
-        <div style={{ padding: 20, width: 'fit-content' }}>
-          <Story />
-        </div>
-      </BrowserRouter>
+      <>
+        <BrowserRouter>
+          <div style={{ padding: 20, width: 'fit-content' }}>
+            <Story />
+          </div>
+        </BrowserRouter>
+        <div id="modals" />
+      </>
     )
   ]
 };

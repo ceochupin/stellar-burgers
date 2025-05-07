@@ -1,4 +1,6 @@
 import styles from './app-header.module.css';
+
+import React from 'react';
 import { TAppHeaderUIProps } from './type';
 import {
   BurgerIcon,
