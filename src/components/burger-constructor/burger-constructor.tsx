@@ -12,7 +12,8 @@ import {
   selectBurgerTotalPrice,
   selectNewOrder,
   selectNewOrderStatus,
-  selectUserData
+  selectUserData,
+  stopIsLoading
 } from '@slices';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -47,6 +48,7 @@ export const BurgerConstructor = (): JSX.Element => {
   const closeOrderModal = () => {
     dispatch(clearNewOrder());
     dispatch(clearConstructor());
+    dispatch(stopIsLoading());
   };
 
   return (

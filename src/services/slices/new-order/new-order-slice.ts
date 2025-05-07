@@ -20,6 +20,9 @@ export const newOrderSlice = createSlice({
   reducers: {
     clearNewOrder: (state) => {
       state.newOrder = null;
+    },
+    stopIsLoading: (state) => {
+      state.isLoading = false;
     }
   },
   selectors: {
@@ -43,7 +46,7 @@ export const newOrderSlice = createSlice({
   }
 });
 
-export const { clearNewOrder } = newOrderSlice.actions;
+export const { clearNewOrder, stopIsLoading } = newOrderSlice.actions;
 
 export const { selectNewOrder, selectNewOrderStatus, selectNewOrderError } =
   newOrderSlice.selectors;

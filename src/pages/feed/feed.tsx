@@ -1,5 +1,5 @@
 import { Preloader } from '@ui';
-import { FeedUI } from '@ui-pages';
+import { FeedUI } from './ui/FeedUI';
 import { TOrder } from '@utils-types';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from '@store';

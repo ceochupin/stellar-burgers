@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { TOrder } from '@utils-types';
 import { FeedInfoUI } from '@ui';
 import { useSelector } from '@store';
@@ -24,6 +24,8 @@ export const FeedInfo = (): JSX.Element => {
   const readyOrders = getOrders(orders, 'done');
 
   const pendingOrders = getOrders(orders, 'pending');
+
+  console.log({ readyOrders, pendingOrders });
 
   return (
     <FeedInfoUI

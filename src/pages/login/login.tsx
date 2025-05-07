@@ -1,5 +1,5 @@
 import React, { SyntheticEvent, useState } from 'react';
-import { LoginUI } from '@ui-pages';
+import { LoginUI } from './ui/LoginUI';
 import { useDispatch } from '@store';
 import { loginUser } from '@slices';
 
