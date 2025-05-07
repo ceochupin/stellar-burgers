@@ -1,4 +1,4 @@
-import { Preloader } from '@ui';
+import { Preloader } from '@components';
 import { FeedUI } from './ui/FeedUI';
 import { TOrder } from '@utils-types';
 import React, { useEffect } from 'react';

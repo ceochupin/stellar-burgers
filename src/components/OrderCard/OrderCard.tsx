@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { OrderCardProps } from './type';
-import { OrderCardUI } from '@ui';
+import { OrderCardUI } from './ui/OrderCardUI';
 import { useSelector } from '@store';
 import { selectOrderInfo } from '@slices';
 

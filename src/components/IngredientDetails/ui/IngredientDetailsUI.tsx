@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import styles from './ingredient-details.module.css';
+import styles from './IngredientDetailsUI.module.css';
 import { IngredientDetailsUIProps } from './type';
 
 export const IngredientDetailsUI = memo(

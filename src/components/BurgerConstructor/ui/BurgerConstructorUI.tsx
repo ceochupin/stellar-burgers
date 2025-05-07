@@ -9,7 +9,7 @@ import styles from './BurgerConstructorUI.module.css';
 import { BurgerConstructorUIProps } from './type';
 import { TConstructorIngredient } from '@utils-types';
 import { BurgerConstructorElement, Modal } from '@components';
-import { Preloader, OrderDetailsUI } from '@ui';
+import { Preloader, OrderDetailsUI } from '@components';
 
 export const BurgerConstructorUI = ({
   constructorItems,

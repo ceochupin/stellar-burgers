@@ -1,7 +1,7 @@
-import styles from './order-details.module.css';
+import styles from './OrderDetails.module.css';
 
 import React from 'react';
-import doneImg from '../../../images/done.svg';
+import doneImg from '../../images/done.svg';
 import { OrderDetailsUIProps } from './type';
 
 export const OrderDetailsUI = ({

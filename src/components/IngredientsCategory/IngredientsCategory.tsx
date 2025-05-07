@@ -1,7 +1,7 @@
 import React, { forwardRef, useMemo } from 'react';
 import { TIngredientsCategoryProps } from './type';
 import { TIngredient } from '@utils-types';
-import { IngredientsCategoryUI } from '@ui';
+import { IngredientsCategoryUI } from './ui/IngredientsCategoryUI';
 import { useSelector } from '@store';
 import {
   selectBurgerBun,

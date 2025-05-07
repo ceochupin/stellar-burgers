@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Preloader, OrderInfoUI } from '@ui';
+import { Preloader } from '@components';
+import { OrderInfoUI } from './ui/OrderInfoUI';
 import { useDispatch, useSelector } from '@store';
 import { useParams } from 'react-router-dom';
 import {

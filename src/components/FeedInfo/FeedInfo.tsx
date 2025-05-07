@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { TOrder } from '@utils-types';
-import { FeedInfoUI } from '@ui';
+import { FeedInfoUI } from './ui/FeedInfoUI';
 import { useSelector } from '@store';
 import {
   selectFeedOrders,

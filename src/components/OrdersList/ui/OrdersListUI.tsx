@@ -1,4 +1,4 @@
-import styles from './orders-list.module.css';
+import styles from './OrdersListUI.module.css';
 
 import React from 'react';
 import { OrdersListUIProps } from './type';

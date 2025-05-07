@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 
 import { OrdersListProps } from './type';
-import { OrdersListUI } from '@ui';
+import { OrdersListUI } from './ui/OrdersListUI';
 
 export const OrdersList = memo(({ orders }: OrdersListProps): JSX.Element => {
   const orderByDate = [...orders].sort(

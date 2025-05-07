@@ -3,14 +3,14 @@ import { TUser } from '@utils-types';
 
 import { loginUser, logoutUser, registerUser, updateUser } from '@slices';
 
-type TUserState = {
+type TAuthState = {
   userData: TUser | null;
   isAuthChecked: boolean;
   isLoading: boolean;
   error: string | null;
 };
 
-const initialState: TUserState = {
+const initialState: TAuthState = {
   userData: null,
   isAuthChecked: false,
   isLoading: false,

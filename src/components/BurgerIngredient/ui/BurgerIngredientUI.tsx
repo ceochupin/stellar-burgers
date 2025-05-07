@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './burger-ingredient.module.css';
+import styles from './BurgerIngredientUI.module.css';
 
 import {
   Counter,

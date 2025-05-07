@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { ProfileMenuUI } from '@ui';
+import { ProfileMenuUI } from './ui/ProfileMenuUI';
 import { useDispatch } from '@store';
 import { logoutUser } from '@slices';
 

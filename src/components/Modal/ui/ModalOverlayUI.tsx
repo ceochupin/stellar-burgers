@@ -1,4 +1,4 @@
-import styles from './modal-overlay.module.css';
+import styles from './ModalOverlayUI.module.css';
 import React from 'react';
 
 export const ModalOverlayUI = ({

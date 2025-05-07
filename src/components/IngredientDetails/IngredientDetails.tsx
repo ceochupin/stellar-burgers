@@ -1,6 +1,6 @@
 import React from 'react';
-import { Preloader } from '@ui';
-import { IngredientDetailsUI } from '@ui';
+import { Preloader } from '@components';
+import { IngredientDetailsUI } from './ui/IngredientDetailsUI';
 import { useSelector } from '@store';
 import { selectIngredientById } from '@slices';
 import { useParams } from 'react-router-dom';

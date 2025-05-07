@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { BurgerConstructorElementUI } from '@ui';
+import { BurgerConstructorElementUI } from './ui/BurgerConstructorElementUI';
 import { BurgerConstructorElementProps } from './type';
 import { useDispatch } from '@store';
 import { moveIngredient, removeIngredient } from '@slices';

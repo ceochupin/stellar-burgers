@@ -1,4 +1,4 @@
-import styles from './ingredients-category.module.css';
+import styles from './IngredientsCategoryUI.module.css';
 import React, { forwardRef } from 'react';
 import { TIngredientsCategoryUIProps } from './type';
 import { BurgerIngredient } from '@components';

@@ -1,4 +1,4 @@
-import { FeedInfoUI } from '@ui';
+import { FeedInfoUI } from './FeedInfoUI';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {

@@ -1,10 +1,10 @@
 import React from 'react';
-import { OrderStatusUI } from '@ui';
+import { OrderDetailsUI } from './OrderDetails';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Example/OrderStatus',
-  component: OrderStatusUI,
+  title: 'Example/OrderDetails',
+  component: OrderDetailsUI,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   parameters: {
@@ -13,19 +13,26 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: 'fit-content', margin: 20 }}>
+      <div
+        style={{
+          width: 'fit-content',
+          margin: 20,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }}
+      >
         <Story />
       </div>
     )
   ]
-} satisfies Meta<typeof OrderStatusUI>;
+} satisfies Meta<typeof OrderDetailsUI>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const DefaultOrderStatus: Story = {
+export const DefaultOrderDetails: Story = {
   args: {
-    textStyle: '#E52B1A',
-    text: 'Готовится'
+    orderNumber: 12
   }
 };

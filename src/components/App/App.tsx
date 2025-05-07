@@ -23,7 +23,7 @@ import { useEffect } from 'react';
 import { getIngredients } from '@slices';
 import { checkUserAuth } from '@slices';
 
-const App = (): JSX.Element => {
+export const App = (): JSX.Element => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
@@ -117,5 +117,3 @@ const App = (): JSX.Element => {
     </div>
   );
 };
-
-export default App;
