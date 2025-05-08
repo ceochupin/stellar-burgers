@@ -105,5 +105,3 @@ export const {
 } = ordersSlice.selectors;
 
 export const { clearOrderByNumber } = ordersSlice.actions;
-
-export default ordersSlice.reducer;

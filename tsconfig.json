@@ -26,7 +26,9 @@
       "@selectors": ["src/services/selectors"],
       "@redux-store": ["src/services/store"],
       "@redux-types": ["src/services/types"],
-      "@cookie": ["src/utils/cookie"]
+      "@cookie": ["src/utils/cookie"],
+      "@hooks": ["src/services/hooks"],
+      "@constans": ["src/utils/constants"]
     }
   },
   "include": ["src"]

@@ -47,6 +47,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.error.message ?? 'Ошибка регистрации пользователя';
       })
+
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
       })
@@ -58,6 +59,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.error.message ?? 'Ошибка входа пользователя';
       })
+
       .addCase(logoutUser.pending, (state) => {
         state.isLoading = true;
       })
@@ -69,6 +71,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.error.message ?? 'Ошибка выхода пользователя';
       })
+
       .addCase(updateUser.pending, (state) => {
         state.isLoading = true;
       })
@@ -92,5 +95,3 @@ export const {
   selectAuthIsLoading,
   selectAuthError
 } = authSlice.selectors;
-
-export default authSlice.reducer;

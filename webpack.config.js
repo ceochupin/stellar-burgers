@@ -79,7 +79,9 @@ module.exports = {
       '@selectors': path.resolve(__dirname, './src/services/selectors'),
       '@redux-store': path.resolve(__dirname, './src/services/store'),
       '@redux-types': path.resolve(__dirname, './src/services/types'),
-      '@cookie': path.resolve(__dirname, './src/utils/cookie')
+      '@cookie': path.resolve(__dirname, './src/utils/cookie'),
+      '@hooks': path.resolve(__dirname, './src/services/hooks'),
+      '@constans': path.resolve(__dirname, './src/utils/constants')
     }
   },
   output: {

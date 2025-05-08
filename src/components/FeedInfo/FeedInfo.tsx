@@ -25,8 +25,6 @@ export const FeedInfo = (): JSX.Element => {
 
   const pendingOrders = getOrders(orders, 'pending');
 
-  console.log({ readyOrders, pendingOrders });
-
   return (
     <FeedInfoUI
       readyOrders={readyOrders}

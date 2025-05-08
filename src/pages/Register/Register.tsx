@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { RegisterUI } from './ui/RegisterUI';
-import { useDispatch, useSelector } from '@store';
+import { useDispatch, useSelector } from '@redux-store';
 import { registerUser, selectAuthError } from '@slices';
 
 export const Register = (): JSX.Element => {

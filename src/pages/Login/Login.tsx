@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { LoginUI } from './ui/LoginUI';
-import { useDispatch } from '@store';
+import { useDispatch } from '@redux-store';
 import { loginUser } from '@slices';
 
 export const Login = (): JSX.Element => {
