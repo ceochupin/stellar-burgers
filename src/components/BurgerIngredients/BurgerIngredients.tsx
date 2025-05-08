@@ -1,13 +1,28 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { TTabMode } from '@utils-types';
 import { BurgerIngredientsUI } from './ui/BurgerIngredientsUI';
 import { useSelector } from '@redux-store';
-import { selectIngredientsByAllTypes } from '@slices';
+import { selectIngredientsItems } from '@slices';
 
 export const BurgerIngredients = (): JSX.Element => {
-  const { buns, mains, sauces } = useSelector(selectIngredientsByAllTypes);
+  const ingredients = useSelector(selectIngredientsItems);
+
+  const buns = useMemo(
+    () => ingredients.filter((ing) => ing.type === 'bun'),
+    [ingredients]
+  );
+
+  const mains = useMemo(
+    () => ingredients.filter((ing) => ing.type === 'main'),
+    [ingredients]
+  );
+
+  const sauces = useMemo(
+    () => ingredients.filter((ing) => ing.type === 'sauce'),
+    [ingredients]
+  );
 
   const [currentTab, setCurrentTab] = useState<TTabMode>('bun');
 
