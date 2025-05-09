@@ -18,7 +18,7 @@ describe('ingredientsSlice: Redux store and actions', () => {
 
     it('should handle pending state when fetching ingredients', () => {
       expect(
-        ingredientsSlice.reducer(undefined, {
+        ingredientsSlice.reducer(initialStateIngredients, {
           type: getIngredients.pending.type
         })
       ).toEqual({ ...initialStateIngredients, isLoading: true });
@@ -26,7 +26,7 @@ describe('ingredientsSlice: Redux store and actions', () => {
 
     it('should handle fulfilled state when ingredients are fetched successfully', () => {
       expect(
-        ingredientsSlice.reducer(undefined, {
+        ingredientsSlice.reducer(initialStateIngredients, {
           type: getIngredients.fulfilled.type,
           payload: mockIngredients
         })
@@ -39,7 +39,7 @@ describe('ingredientsSlice: Redux store and actions', () => {
 
     it('should handle rejected state when ingredients fetch fails', () => {
       expect(
-        ingredientsSlice.reducer(undefined, {
+        ingredientsSlice.reducer(initialStateIngredients, {
           type: getIngredients.rejected.type,
           error: { message: mockErrorMessage }
         })
@@ -52,7 +52,7 @@ describe('ingredientsSlice: Redux store and actions', () => {
 
     it('should handle rejected state with undefined error message', () => {
       expect(
-        ingredientsSlice.reducer(undefined, {
+        ingredientsSlice.reducer(initialStateIngredients, {
           type: getIngredients.rejected.type,
           error: {}
         })

@@ -106,7 +106,7 @@ describe('burgerSlice: Redux store and actions', () => {
     });
 
     describe('moveIngredient', () => {
-      it('', () => {
+      it('should moving ingredient in burger cobstructor', () => {
         const initialState = [
           { ...mockIngredientMain, id: 'ingredient-1' },
           { ...mockIngredientMain, id: 'ingredient-2' },
@@ -137,6 +137,7 @@ describe('burgerSlice: Redux store and actions', () => {
     describe('clearConstructor', () => {
       it('should reset bun and ingredients to initial state', () => {
         const state = {
+          ...initialStateBurger,
           bun: { ...mockIngredientBun, id: 'bun-1' } as TConstructorIngredient,
           ingredients: [
             {
@@ -160,6 +161,7 @@ describe('burgerSlice: Redux store and actions', () => {
   describe('Selectors in burgerSlice', () => {
     const state = {
       burger: {
+        ...initialStateBurger,
         bun: { ...mockIngredientBun, id: 'bun-1' } as TConstructorIngredient,
         ingredients: [
           {
