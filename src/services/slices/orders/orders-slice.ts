@@ -65,6 +65,7 @@ export const ordersSlice = createSlice({
         state.isLoading = false;
         state.error = action.error.message ?? 'Ошибка загрузки ленты заказов';
       })
+
       // лента пользователя
       .addCase(getUserOrders.pending, (state) => {
         state.isLoading = true;
@@ -78,6 +79,7 @@ export const ordersSlice = createSlice({
         state.error =
           action.error.message ?? 'Ошибка загрузки заказов пользователя';
       })
+
       // поиск заказа по номеру
       .addCase(getOrderByNumber.pending, (state) => {
         state.isLoading = true;
@@ -105,3 +107,5 @@ export const {
 } = ordersSlice.selectors;
 
 export const { clearOrderByNumber } = ordersSlice.actions;
+
+export { initialState as initialStateOrders };

@@ -73,16 +73,22 @@ describe('ingredientsSlice: Redux store and actions', () => {
       } as typeof initialStateIngredients
     };
 
-    it('should select all ingredients', () => {
-      expect(selectIngredientsItems(state)).toEqual(mockIngredients);
+    describe('selectIngredientsItems', () => {
+      it('should select all ingredients', () => {
+        expect(selectIngredientsItems(state)).toEqual(mockIngredients);
+      });
     });
 
-    it('should select loading state', () => {
-      expect(selectIngredientsIsLoading(state)).toBe(true);
+    describe('selectIngredientsIsLoading', () => {
+      it('should select loading state', () => {
+        expect(selectIngredientsIsLoading(state)).toBe(true);
+      });
     });
 
-    it('should select error', () => {
-      expect(selectIngredientsError(state)).toBe(mockErrorMessage);
+    describe('selectIngredientsError', () => {
+      it('should select error', () => {
+        expect(selectIngredientsError(state)).toBe(mockErrorMessage);
+      });
     });
   });
 });

@@ -103,12 +103,16 @@ describe('newOrderSlice: Redux store and actions', () => {
       } as typeof initialStateNewOrder
     };
 
-    it('should select order data', () => {
-      expect(selectNewOrder(state)).toEqual(mockNewOrder);
+    describe('selectNewOrder', () => {
+      it('should select new order data', () => {
+        expect(selectNewOrder(state)).toEqual(mockNewOrder);
+      });
     });
 
-    it('should select loading state', () => {
-      expect(selectNewOrderStatus(state)).toBe(true);
+    describe('selectNewOrderStatus', () => {
+      it('should select loading state', () => {
+        expect(selectNewOrderStatus(state)).toBe(true);
+      });
     });
   });
 });

@@ -176,14 +176,18 @@ describe('burgerSlice: Redux store and actions', () => {
       } as typeof initialStateBurger
     };
 
-    it('selectBurgerItems should return burger state', () => {
-      expect(selectBurgerItems(state)).toEqual(state.burger);
+    describe('selectBurgerItems', () => {
+      it('selectBurgerItems should return burger state', () => {
+        expect(selectBurgerItems(state)).toEqual(state.burger);
+      });
     });
 
-    it('selectBurgerItems should work with empty state', () => {
-      expect(selectBurgerItems({ burger: initialStateBurger })).toEqual(
-        initialStateBurger
-      );
+    describe('selectBurgerItems', () => {
+      it('selectBurgerItems should work with empty state', () => {
+        expect(selectBurgerItems({ burger: initialStateBurger })).toEqual(
+          initialStateBurger
+        );
+      });
     });
   });
 });
