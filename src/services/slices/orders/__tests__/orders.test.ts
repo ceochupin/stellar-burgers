@@ -32,7 +32,7 @@ describe('ordersSlice: Redux store and actions', () => {
       describe('getFeedOrders', () => {
         it('should handle pending state when fetching feed orders', () => {
           expect(
-            ordersSlice.reducer(initialStateOrders, {
+            ordersSlice.reducer(undefined, {
               type: getFeedOrders.pending.type
             })
           ).toEqual({ ...initialStateOrders, isLoading: true });
@@ -40,7 +40,7 @@ describe('ordersSlice: Redux store and actions', () => {
 
         it('should handle fulfilled state when feed orders are fetched successfully', () => {
           expect(
-            ordersSlice.reducer(initialStateOrders, {
+            ordersSlice.reducer(undefined, {
               type: getFeedOrders.fulfilled.type,
               payload: mockFeedOrders
             })
@@ -55,7 +55,7 @@ describe('ordersSlice: Redux store and actions', () => {
 
         it('should handle rejected state when feed orders fetch fails', () => {
           expect(
-            ordersSlice.reducer(initialStateOrders, {
+            ordersSlice.reducer(undefined, {
               type: getFeedOrders.rejected.type,
               error: { message: mockErrorMessage }
             })
@@ -68,7 +68,7 @@ describe('ordersSlice: Redux store and actions', () => {
 
         it('should handle rejected state with undefined error message', () => {
           expect(
-            ordersSlice.reducer(initialStateOrders, {
+            ordersSlice.reducer(undefined, {
               type: getFeedOrders.rejected.type,
               error: {}
             })
@@ -83,7 +83,7 @@ describe('ordersSlice: Redux store and actions', () => {
       describe('getUserOrders', () => {
         it('should handle pending state when fetching user orders', () => {
           expect(
-            ordersSlice.reducer(initialStateOrders, {
+            ordersSlice.reducer(undefined, {
               type: getUserOrders.pending.type
             })
           ).toEqual({ ...initialStateOrders, isLoading: true });
@@ -91,7 +91,7 @@ describe('ordersSlice: Redux store and actions', () => {
 
         it('should handle fulfilled state when user orders are fetched successfully', () => {
           expect(
-            ordersSlice.reducer(initialStateOrders, {
+            ordersSlice.reducer(undefined, {
               type: getUserOrders.fulfilled.type,
               payload: mockUserOrders
             })
@@ -104,7 +104,7 @@ describe('ordersSlice: Redux store and actions', () => {
 
         it('should handle rejected state when user orders fetch fails', () => {
           expect(
-            ordersSlice.reducer(initialStateOrders, {
+            ordersSlice.reducer(undefined, {
               type: getUserOrders.rejected.type,
               error: { message: mockErrorMessage }
             })
@@ -117,7 +117,7 @@ describe('ordersSlice: Redux store and actions', () => {
 
         it('should handle rejected state with undefined error message', () => {
           expect(
-            ordersSlice.reducer(initialStateOrders, {
+            ordersSlice.reducer(undefined, {
               type: getUserOrders.rejected.type,
               error: {}
             })
@@ -132,7 +132,7 @@ describe('ordersSlice: Redux store and actions', () => {
       describe('getOrderByNumber', () => {
         it('should handle pending state when fetching order by number', () => {
           expect(
-            ordersSlice.reducer(initialStateOrders, {
+            ordersSlice.reducer(undefined, {
               type: getOrderByNumber.pending.type
             })
           ).toEqual({ ...initialStateOrders, isLoading: true });
@@ -140,7 +140,7 @@ describe('ordersSlice: Redux store and actions', () => {
 
         it('should handle fulfilled state when user order by number are fetched successfully', () => {
           expect(
-            ordersSlice.reducer(initialStateOrders, {
+            ordersSlice.reducer(undefined, {
               type: getOrderByNumber.fulfilled.type,
               payload: mockOrder
             })
@@ -153,7 +153,7 @@ describe('ordersSlice: Redux store and actions', () => {
 
         it('should handle rejected state when user order by number fetch fails', () => {
           expect(
-            ordersSlice.reducer(initialStateOrders, {
+            ordersSlice.reducer(undefined, {
               type: getOrderByNumber.rejected.type,
               error: { message: mockErrorMessage }
             })
@@ -166,7 +166,7 @@ describe('ordersSlice: Redux store and actions', () => {
 
         it('should handle rejected state with undefined error message', () => {
           expect(
-            ordersSlice.reducer(initialStateOrders, {
+            ordersSlice.reducer(undefined, {
               type: getOrderByNumber.rejected.type,
               error: {}
             })

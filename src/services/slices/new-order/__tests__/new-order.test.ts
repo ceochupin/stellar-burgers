@@ -47,7 +47,7 @@ describe('newOrderSlice: Redux store and actions', () => {
     describe('extraReducers', () => {
       it('should handle pending state when fetching order', () => {
         expect(
-          newOrderSlice.reducer(initialStateNewOrder, {
+          newOrderSlice.reducer(undefined, {
             type: createNewOrder.pending.type
           })
         ).toEqual({ ...initialStateNewOrder, isLoading: true });
@@ -55,7 +55,7 @@ describe('newOrderSlice: Redux store and actions', () => {
 
       it('should handle fulfilled state when order are fetched successfully', () => {
         expect(
-          newOrderSlice.reducer(initialStateNewOrder, {
+          newOrderSlice.reducer(undefined, {
             type: createNewOrder.fulfilled.type,
             payload: mockNewOrder
           })
@@ -68,7 +68,7 @@ describe('newOrderSlice: Redux store and actions', () => {
 
       it('should handle rejected state when order fetch fails', () => {
         expect(
-          newOrderSlice.reducer(initialStateNewOrder, {
+          newOrderSlice.reducer(undefined, {
             type: createNewOrder.rejected.type,
             error: { message: mockErrorMessage }
           })
@@ -81,7 +81,7 @@ describe('newOrderSlice: Redux store and actions', () => {
 
       it('should handle rejected state with undefined error message', () => {
         expect(
-          newOrderSlice.reducer(initialStateNewOrder, {
+          newOrderSlice.reducer(undefined, {
             type: createNewOrder.rejected.type,
             error: {}
           })
