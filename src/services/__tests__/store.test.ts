@@ -16,11 +16,11 @@ describe('rootReducer', () => {
     orders: initialStateOrders
   };
 
-  it('should return state', () => {
+  it('should return initial state for unknown action', () => {
     expect(rootReducer(undefined, { type: '' })).toEqual(store.getState());
   });
 
-  it('should return the initial state', () => {
+  it('should match store initial state', () => {
     expect(store.getState()).toEqual(initialRootState);
   });
 });

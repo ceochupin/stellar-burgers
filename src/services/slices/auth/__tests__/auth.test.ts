@@ -397,13 +397,9 @@ jest.mock('@api', () => ({
   resetPasswordApi: jest.fn()
 }));
 
-describe('should thunk functions', () => {
+describe('thunk functions for authSlice', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-  });
-
-  afterEach(() => {
-    jest.restoreAllMocks();
   });
 
   describe('checkUserAuth', () => {
@@ -436,7 +432,7 @@ describe('should thunk functions', () => {
       token: 'reset-token'
     };
 
-    it('should dispatch setIsAuthChecked when no token', async () => {
+    it('should call resetPasswordApi with correct data', async () => {
       (resetPasswordApi as jest.Mock).mockResolvedValue({ success: true });
 
       await resetUserPassword(mockData)(jest.fn(), jest.fn(), undefined);
