@@ -37,7 +37,7 @@ export const App = (): JSX.Element => {
   useEffect(() => {
     dispatch(getIngredients());
     dispatch(checkUserAuth());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={styles.app}>
