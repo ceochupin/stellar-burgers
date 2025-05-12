@@ -1,7 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TUser } from '@utils-types';
 
-import { loginUser, logoutUser, registerUser, updateUser } from '@slices';
+import {
+  forgotUserPassword,
+  loginUser,
+  logoutUser,
+  registerUser,
+  resetUserPassword,
+  updateUser
+} from '@slices';
 
 type TAuthState = {
   userData: TUser | null;
@@ -47,6 +54,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.error.message ?? 'Ошибка регистрации пользователя';
       })
+
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
       })
@@ -58,6 +66,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.error.message ?? 'Ошибка входа пользователя';
       })
+
       .addCase(logoutUser.pending, (state) => {
         state.isLoading = true;
       })
@@ -69,6 +78,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.error.message ?? 'Ошибка выхода пользователя';
       })
+
       .addCase(updateUser.pending, (state) => {
         state.isLoading = true;
       })
@@ -80,6 +90,28 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error =
           action.error.message ?? 'Ошибка обновления данных пользователя';
+      })
+
+      .addCase(forgotUserPassword.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(forgotUserPassword.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(forgotUserPassword.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message ?? 'Ошибка восстановления пароля';
+      })
+
+      .addCase(resetUserPassword.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(resetUserPassword.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(resetUserPassword.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message ?? 'Ошибка обновления пароля';
       });
   }
 });
@@ -93,4 +125,4 @@ export const {
   selectAuthError
 } = authSlice.selectors;
 
-export default authSlice.reducer;
+export { initialState as initialStateAuth };

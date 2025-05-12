@@ -1,9 +1,4 @@
-import {
-  createSelector,
-  createSlice,
-  nanoid,
-  PayloadAction
-} from '@reduxjs/toolkit';
+import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TIngredient } from '@utils-types';
 
 type TBurgerState = {
@@ -37,6 +32,7 @@ export const burgerSlice = createSlice({
         (item) => item.id !== action.payload
       );
     },
+
     moveIngredient: (
       state,
       action: PayloadAction<{ dragIndex: number; hoverIndex: number }>
@@ -58,39 +54,7 @@ export const burgerSlice = createSlice({
     }
   },
   selectors: {
-    selectBurgerBun: (state) => state.bun,
-    selectBurgerIngredients: (state) => state.ingredients,
-
-    // мемоизированный селектор для рассчета стоимости бургера
-    selectBurgerTotalPrice: createSelector(
-      [
-        (state: TBurgerState) => state.bun,
-        (state: TBurgerState) => state.ingredients
-      ],
-      (bun, ingredients) => {
-        const bunPrice = bun ? bun.price * 2 : 0;
-        const ingredientsPrice = ingredients.reduce(
-          (sum, item) => sum + item.price,
-          0
-        );
-        return bunPrice + ingredientsPrice;
-      }
-    ),
-
-    // мемоизированный селектор для создания массива ids ингредиентов
-    selectBurgerItemsIds: createSelector(
-      [
-        (state: TBurgerState) => state.bun,
-        (state: TBurgerState) => state.ingredients
-      ],
-      (bun, ingredients) => {
-        const ingredientsIds = ingredients.map((item) => item._id);
-        const bunId = bun ? [bun._id] : [];
-
-        // добавляем в массив 2 булки а между ними ингредиенты
-        return [...bunId, ...ingredientsIds, ...bunId];
-      }
-    )
+    selectBurgerItems: (state) => state
   }
 });
 
@@ -101,11 +65,5 @@ export const {
   clearConstructor
 } = burgerSlice.actions;
 
-export const {
-  selectBurgerBun,
-  selectBurgerIngredients,
-  selectBurgerTotalPrice,
-  selectBurgerItemsIds
-} = burgerSlice.selectors;
-
-export default burgerSlice.reducer;
+export const { selectBurgerItems } = burgerSlice.selectors;
+export { initialState as initialStateBurger };

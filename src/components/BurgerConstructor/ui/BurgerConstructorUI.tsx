@@ -21,7 +21,7 @@ export const BurgerConstructorUI = ({
 }: BurgerConstructorUIProps): JSX.Element => (
   <section className={styles.burger_constructor}>
     {constructorItems.bun ? (
-      <div className={`${styles.element} mb-4 mr-4`}>
+      <div className={`${styles.element} mb-4 mr-4`} data-cy={'burgerBun'}>
         <ConstructorElement
           type='top'
           isLocked
@@ -33,8 +33,9 @@ export const BurgerConstructorUI = ({
     ) : (
       <div
         className={`${styles.noBuns} ${styles.noBunsTop} mb-4 mr-4 text text_type_main-default`}
+        data-cy={'burgerNoBun'}
       >
-        Выберите булки
+        Выберите булку
       </div>
     )}
     <ul className={styles.elements}>
@@ -52,6 +53,7 @@ export const BurgerConstructorUI = ({
       ) : (
         <div
           className={`${styles.noIngredients} mr-2 text text_type_main-default`}
+          data-cy={'burgerNoIngredients'}
         >
           Выберите начинку
         </div>
@@ -71,7 +73,7 @@ export const BurgerConstructorUI = ({
       <div
         className={`${styles.noBuns} ${styles.noBunsBottom} mr-4 mt-4 text text_type_main-default`}
       >
-        Выберите булки
+        Выберите булку
       </div>
     )}
     <div className={`${styles.total} mt-10 mr-4`}>
@@ -85,6 +87,7 @@ export const BurgerConstructorUI = ({
         size='large'
         children='Оформить заказ'
         onClick={onOrderClick}
+        data-cy={'orderButton'}
       />
     </div>
 

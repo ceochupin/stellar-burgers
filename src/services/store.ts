@@ -13,7 +13,7 @@ import {
   newOrderSlice
 } from '@slices';
 
-const rootReducer = combineSlices(
+export const rootReducer = combineSlices(
   authSlice,
   ingredientsSlice,
   burgerSlice,

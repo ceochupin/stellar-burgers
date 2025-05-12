@@ -1,7 +1,7 @@
 import React from 'react';
 import { Preloader } from '@components';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useSelector } from '@store';
+import { useSelector } from '@redux-store';
 import { selectIsAuthChecked, selectUserData } from '@slices';
 
 type TProtectedProps = {

@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { TIngredient } from '@utils-types';
 import { getIngredients } from '@slices';
 
@@ -21,16 +21,7 @@ export const ingredientsSlice = createSlice({
   selectors: {
     selectIngredientsItems: (state) => state.items,
     selectIngredientsIsLoading: (state) => state.isLoading,
-    selectIngredientsError: (state) => state.error,
-
-    selectIngredientsByAllTypes: createSelector(
-      [(state: TIngredientsState) => state.items],
-      (items: TIngredient[]) => ({
-        buns: items.filter((item) => item.type === 'bun'),
-        mains: items.filter((item) => item.type === 'main'),
-        sauces: items.filter((item) => item.type === 'sauce')
-      })
-    )
+    selectIngredientsError: (state) => state.error
   },
   extraReducers: (builder) => {
     builder
@@ -51,8 +42,7 @@ export const ingredientsSlice = createSlice({
 export const {
   selectIngredientsItems,
   selectIngredientsIsLoading,
-  selectIngredientsError,
-  selectIngredientsByAllTypes
+  selectIngredientsError
 } = ingredientsSlice.selectors;
 
-export default ingredientsSlice.reducer;
+export { initialState as initialStateIngredients };
