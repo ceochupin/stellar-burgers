@@ -5,4 +5,10 @@ export const ModalOverlayUI = ({
   onClick
 }: {
   onClick: () => void;
-}): JSX.Element => <div className={styles.overlay} onClick={onClick} />;
+}): JSX.Element => (
+  <div
+    className={styles.overlay}
+    onClick={onClick}
+    data-cy={'modalCloseOverlay'}
+  />
+);

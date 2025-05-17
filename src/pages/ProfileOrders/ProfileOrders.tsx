@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from '@store';
+import { useDispatch, useSelector } from '@redux-store';
 import { ProfileOrdersUI } from './ui/ProfileOrdersUI';
 import { TOrder } from '@utils-types';
 import { getUserOrders, selectUserOrders } from '@slices';

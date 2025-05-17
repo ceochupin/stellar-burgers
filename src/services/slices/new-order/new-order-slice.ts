@@ -3,13 +3,13 @@ import { TOrder } from '@utils-types';
 import { createNewOrder } from '@slices';
 
 type TNewOrderState = {
-  newOrder: TOrder | null;
+  order: TOrder | null;
   isLoading: boolean;
   error: string | null;
 };
 
 const initialState: TNewOrderState = {
-  newOrder: null,
+  order: null,
   isLoading: false,
   error: null
 };
@@ -19,16 +19,15 @@ export const newOrderSlice = createSlice({
   initialState,
   reducers: {
     clearNewOrder: (state) => {
-      state.newOrder = null;
+      state.order = null;
     },
     stopIsLoading: (state) => {
       state.isLoading = false;
     }
   },
   selectors: {
-    selectNewOrder: (state) => state.newOrder,
-    selectNewOrderStatus: (state) => state.isLoading,
-    selectNewOrderError: (state) => state.error
+    selectNewOrder: (state) => state.order,
+    selectNewOrderStatus: (state) => state.isLoading
   },
   extraReducers: (builder) => {
     builder
@@ -37,7 +36,7 @@ export const newOrderSlice = createSlice({
       })
       .addCase(createNewOrder.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.newOrder = action.payload;
+        state.order = action.payload;
       })
       .addCase(createNewOrder.rejected, (state, action) => {
         state.isLoading = false;
@@ -48,7 +47,6 @@ export const newOrderSlice = createSlice({
 
 export const { clearNewOrder, stopIsLoading } = newOrderSlice.actions;
 
-export const { selectNewOrder, selectNewOrderStatus, selectNewOrderError } =
-  newOrderSlice.selectors;
+export const { selectNewOrder, selectNewOrderStatus } = newOrderSlice.selectors;
 
-export default newOrderSlice.reducer;
+export { initialState as initialStateNewOrder };

@@ -2,7 +2,7 @@ import { Preloader } from '@components';
 import { FeedUI } from './ui/FeedUI';
 import { TOrder } from '@utils-types';
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from '@store';
+import { useDispatch, useSelector } from '@redux-store';
 import { getFeedOrders, selectFeedOrders } from '@slices';
 
 export const Feed = (): JSX.Element => {

@@ -24,9 +24,11 @@
       "@api": ["src/utils/burger-api"],
       "@slices": ["src/services/slices"],
       "@selectors": ["src/services/selectors"],
-      "@store": ["src/services/store"],
+      "@redux-store": ["src/services/store"],
       "@redux-types": ["src/services/types"],
-      "@cookie": ["src/utils/cookie"]
+      "@cookie": ["src/utils/cookie"],
+      "@hooks": ["src/services/hooks"],
+      "@constans": ["src/utils/constants"]
     }
   },
   "include": ["src"]

@@ -77,9 +77,11 @@ module.exports = {
       '@api': path.resolve(__dirname, './src/utils/burger-api'),
       '@slices': path.resolve(__dirname, './src/services/slices'),
       '@selectors': path.resolve(__dirname, './src/services/selectors'),
-      '@store': path.resolve(__dirname, './src/services/store'),
+      '@redux-store': path.resolve(__dirname, './src/services/store'),
       '@redux-types': path.resolve(__dirname, './src/services/types'),
-      '@cookie': path.resolve(__dirname, './src/utils/cookie')
+      '@cookie': path.resolve(__dirname, './src/utils/cookie'),
+      '@hooks': path.resolve(__dirname, './src/services/hooks'),
+      '@constans': path.resolve(__dirname, './src/utils/constants')
     }
   },
   output: {
